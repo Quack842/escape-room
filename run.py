@@ -212,12 +212,15 @@ def start_game():
                     term_move_open = "move"
                     words_open = east_answer.split()
                     # When the user inspect the door
+                    # Last Stopped, continue from hereLast Stopped, continue from hereLast Stopped, continue from hereLast Stopped, continue from hereLast Stopped, continue from here
                     if term_bookshelf_purple in words_inspect:
                         type_delay(STORY_EAST_INSPECT)
                         term_bookshelf_purple = input("Answer: ").lower()
                         while True:
                             if term_bookshelf_purple in words_inspect:
                                 print(INSPECT_BOOK_PURPLE)
+                                term_knife = "knife"
+                                word_term_knife = term_bookshelf_purple.split()
                             elif north_inspect_answer in ("n", "no"):
                                 break
                     # When the user approach the door
