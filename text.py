@@ -44,6 +44,6 @@ skills and creativity. You will be dropped in a room and you will have to
 think of different commands to get yourself out of the room.
 """
 
-TIPS_NUM_1 = """
+INFORMATION_TEXT = """
 
 """
