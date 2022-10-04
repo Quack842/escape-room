@@ -158,6 +158,23 @@ You see that there is a \033[5;35mPurple\033[0;0m combination padlock on the doo
 it seems like it needs a \033[5;35m4 digit\033[0;0m code to unlock. Do you want to unlock the door? (Y/N)
 """
 
+STORY_EAST_INSPECT = f"""
+You see a bookshelf filled with different colour books, the person who this room belongs 
+to must really love reading! The different colour books are mesmerising to look at. As you are inspecting 
+the bookshelf, you notice that there are a lot of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
+What do you do?
+"""
+
+INSPECT_BOOK_PURPLE = f"""
+After inspecting the purple books, you notice that each of the book have a number and alphabet each. 
+The first book you picked up has a letter {Fore.LIGHTCYAN_EX}E{Fore.WHITE} and a number {Fore.LIGHTCYAN_EX}3{Fore.WHITE} on it, 
+the second book has the letter {Fore.LIGHTGREEN_EX}K{Fore.WHITE} and number {Fore.LIGHTGREEN_EX}0{Fore.WHITE} on it. 
+The third book has the letter {Fore.LIGHTMAGENTA_EX}Q{Fore.WHITE} and a number {Fore.LIGHTMAGENTA_EX}1{Fore.WHITE} on it. 
+The forth Book has a letter {Fore.LIGHTYELLOW_EX}Y{Fore.WHITE} and … no number? It seems like a sticker of a ostrobogulous duck was on the area where the number should be. 
+Something sharp will work to scratch off this weird sticker.\n
+What do you do?
+"""
+
 STORY_NORTH_APPROACH = f"""
 As you get closer to the door, you notice a \033[5;35mPurple\033[0;0m combination padlock on the door, 
 it seems like you would need a \033[5;35m4 digit\033[0;0m code to unlock. Do you want to unlock the door? (Y/N)
@@ -178,6 +195,16 @@ ESCAPED_MSG = """
 __________________________________________________________________________
 
 Congratulations! You have managed to escaped the room. 
+"""
+
+GOODBYE = """
+   _____  ____   ____  _____  ______     ________ _ _ 
+  / ____|/ __ \ / __ \|  __ \|  _ \ \   / /  ____| | |
+ | |  __| |  | | |  | | |  | | |_) \ \_/ /| |__  | | |
+ | | |_ | |  | | |  | | |  | |  _ < \   / |  __| | | |
+ | |__| | |__| | |__| | |__| | |_) | | |  | |____|_|_|
+  \_____|\____/ \____/|_____/|____/  |_|  |______(_|_)
+________________________________________________________
 """
 
 TIPS_1 = """

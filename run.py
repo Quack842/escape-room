@@ -1,6 +1,7 @@
 """
 Start of the Project and File
 """
+import numbers
 import os
 import sys
 from tkinter.tix import TEXT  # To clear the console
@@ -78,6 +79,8 @@ def start_game():
         words = answer.split()
         while True:
             if term in words:
+                clear()
+                print(ROOM_DESIGN)
                 type_delay(f"Where do you look?\n"
                 f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
                 f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
@@ -123,6 +126,8 @@ def start_game():
                                     print(f"It is a 4 digit combination lock, you entered {str_int}."
                                     f" That is {len(str_int)} digits, you need"
                                     " to enter a 4 digit code.")
+                                elif int(north_yes_input) != int():
+                                    print("Only numbers please")
                                 else:
                                     print(wrong_input)
                             elif north_inspect_answer in ("n", "no"):
@@ -130,11 +135,63 @@ def start_game():
                     # When the user approach the door
                     elif term_door_approach in words_approach:
                         type_delay(STORY_NORTH_APPROACH)
+                        north_inspect_answer = input("Answer: ").lower()
+                        while True:
+                            if north_inspect_answer in ("y", "yes"):
+                                north_yes_input = int(input("Please enter the 4 digit code: "))
+                                str_int = str(north_yes_input)
+                                if north_yes_input == 3012:
+                                    type_delay("You entered the 4 digit code,"
+                                    " you fiddle with the lock and"
+                                    " all of a sudden *CLICK*. You unlocked the door!")
+                                    clear()
+                                    print(ESCAPED_MSG)
+                                    input("Press Enter to continue...")
+                                    main_menu()
+                                elif len(str_int) < 4:
+                                    print(f"It is a 4 digit combination lock,"
+                                    f" you entered {str_int}."
+                                    f" That is {len(str_int)} digits,"
+                                    " you need to enter a 4 digit code.")
+                                elif len(str_int) > 4:
+                                    print(f"It is a 4 digit combination lock, you entered {str_int}."
+                                    f" That is {len(str_int)} digits, you need"
+                                    " to enter a 4 digit code.")
+                                else:
+                                    print(wrong_input)
+                            elif north_inspect_answer in ("n", "no"):
+                                break
                     # When the user open the door
                     elif term_door_open in words_open:
                         type_delay(STORY_NORTH_OPEN)
+                        north_inspect_answer = input("Answer: ").lower()
+                        while True:
+                            if north_inspect_answer in ("y", "yes"):
+                                north_yes_input = int(input("Please enter the 4 digit code: "))
+                                str_int = str(north_yes_input)
+                                if north_yes_input == 3012:
+                                    type_delay("You entered the 4 digit code,"
+                                    " you fiddle with the lock and"
+                                    " all of a sudden *CLICK*. You unlocked the door!")
+                                    clear()
+                                    print(ESCAPED_MSG)
+                                    input("Press Enter to continue...")
+                                    main_menu()
+                                elif len(str_int) < 4:
+                                    print(f"It is a 4 digit combination lock,"
+                                    f" you entered {str_int}."
+                                    f" That is {len(str_int)} digits,"
+                                    " you need to enter a 4 digit code.")
+                                elif len(str_int) > 4:
+                                    print(f"It is a 4 digit combination lock, you entered {str_int}."
+                                    f" That is {len(str_int)} digits, you need"
+                                    " to enter a 4 digit code.")
+                                else:
+                                    print(wrong_input)
+                            elif north_inspect_answer in ("n", "no"):
+                                break
                     elif north_answer == "back":
-                        return
+                        break
                     else:
                         print(wrong_input)
 
@@ -146,6 +203,86 @@ def start_game():
                     "You Turn to your right and see a big bookshelf"
                     " that is almost as wide as the wall. "
                     "What do you do?\n")
+                    east_answer = input("Answer: ").lower()
+                    # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
+                    term_bookshelf_purple = "purple"
+                    words_inspect = east_answer.split()
+                    term_bookshelf_approach = "approach"
+                    words_approach = east_answer.split()
+                    term_move_open = "move"
+                    words_open = east_answer.split()
+                    # When the user inspect the door
+                    if term_bookshelf_purple in words_inspect:
+                        type_delay(STORY_EAST_INSPECT)
+                        term_bookshelf_purple = input("Answer: ").lower()
+                        while True:
+                            if term_bookshelf_purple in words_inspect:
+                                print(INSPECT_BOOK_PURPLE)
+                            elif north_inspect_answer in ("n", "no"):
+                                break
+                    # When the user approach the door
+                    elif term_bookshelf_approach in words_approach:
+                        type_delay(STORY_NORTH_APPROACH)
+                        north_inspect_answer = input("Answer: ").lower()
+                        while True:
+                            if north_inspect_answer in ("y", "yes"):
+                                north_yes_input = int(input("Please enter the 4 digit code: "))
+                                str_int = str(north_yes_input)
+                                if north_yes_input == 3012:
+                                    type_delay("You entered the 4 digit code,"
+                                    " you fiddle with the lock and"
+                                    " all of a sudden *CLICK*. You unlocked the door!")
+                                    clear()
+                                    print(ESCAPED_MSG)
+                                    input("Press Enter to continue...")
+                                    main_menu()
+                                elif len(str_int) < 4:
+                                    print(f"It is a 4 digit combination lock,"
+                                    f" you entered {str_int}."
+                                    f" That is {len(str_int)} digits,"
+                                    " you need to enter a 4 digit code.")
+                                elif len(str_int) > 4:
+                                    print(f"It is a 4 digit combination lock, you entered {str_int}."
+                                    f" That is {len(str_int)} digits, you need"
+                                    " to enter a 4 digit code.")
+                                else:
+                                    print(wrong_input)
+                            elif north_inspect_answer in ("n", "no"):
+                                break
+                    # When the user open the door
+                    elif term_move_open in words_open:
+                        type_delay(STORY_NORTH_OPEN)
+                        north_inspect_answer = input("Answer: ").lower()
+                        while True:
+                            if north_inspect_answer in ("y", "yes"):
+                                north_yes_input = int(input("Please enter the 4 digit code: "))
+                                str_int = str(north_yes_input)
+                                if north_yes_input == 3012:
+                                    type_delay("You entered the 4 digit code,"
+                                    " you fiddle with the lock and"
+                                    " all of a sudden *CLICK*. You unlocked the door!")
+                                    clear()
+                                    print(ESCAPED_MSG)
+                                    input("Press Enter to continue...")
+                                    main_menu()
+                                elif len(str_int) < 4:
+                                    print(f"It is a 4 digit combination lock,"
+                                    f" you entered {str_int}."
+                                    f" That is {len(str_int)} digits,"
+                                    " you need to enter a 4 digit code.")
+                                elif len(str_int) > 4:
+                                    print(f"It is a 4 digit combination lock, you entered {str_int}."
+                                    f" That is {len(str_int)} digits, you need"
+                                    " to enter a 4 digit code.")
+                                else:
+                                    print(wrong_input)
+                            elif north_inspect_answer in ("n", "no"):
+                                break
+                    elif north_answer == "back":
+                        break
+                    else:
+                        print(wrong_input)
+
                 # When the user look to the South
                 elif look_answer in ("south", "s", "behind", "behind me", "turn around"):
                     clear()
@@ -158,9 +295,13 @@ def start_game():
                     print(ROOM_DESIGN_WEST)
                     type_delay(f"{Fore.YELLOW}{look_answer}:{Fore.WHITE}" +
                     "You turn to your left, you see a desk. What do you do?\n")
+                elif look_answer in ("exit", "quit"):
+                    exit_app()
                 else:
                     print(wrong_input)
-
+            else:
+                print("Invalid Answer, please try again...")
+                break
 def north_face():
     """
     When the user face north, this functino will be shown.
@@ -186,6 +327,7 @@ def exit_app():
             f"or type {Fore.BLUE}N{Fore.WHITE} if you want to stay and try again.\n"
         )
         if answer == "yes" or "YES" or "Y" or "y":
+            print(GOODBYE)
             type_delay("Closing the application... Have a Nice day!")
             quit()
         elif answer == "no" or "NO" or "N" or "n":
