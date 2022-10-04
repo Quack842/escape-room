@@ -19,6 +19,7 @@ def main_menu():
     """
     This will be the landing, the user will first see this page before entering the game.
     """
+    clear()
     print(TITLE)
     print(MAIN_TEXT)
 
@@ -30,11 +31,11 @@ def main_menu():
             f"If you want to exit the application, just type {Fore.BLUE}exit{Fore.WHITE}\n" +
             "Answer: "
         )
-        if answer == "Start" or answer == "start" or answer == "START":
+        if answer in ("start", "strt"):
             start_game()
-        elif answer == "exit" or answer == "EXIT" or answer == "Exit":
+        elif answer in ("exit"):
             exit_app()
-        elif answer == "info" or answer == "information" or answer == "Info" or answer == "Information":
+        elif answer in ("info", "information", "i"):
             information_menu()
         else:
             wrong_input(answer)
@@ -71,75 +72,100 @@ def start_game():
     type_delay(USERNAME + STORY_START)
 
     while True:
-        # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-        # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-        # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-        # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
+        # MULTIPLE TERMS AS BROTHER WHEN HE COMES BACK
         term = "look"
         answer = input("Answer: ").lower()
         words = answer.split()
+        while True:
+            if term in words:
+                type_delay(f"Where do you look?\n"
+                f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
+                f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
+                f"Behind You{Fore.RED}(South){Fore.WHITE} "
+                f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
+                look_answer = input("Answer: ").lower()
+                # When the user look to the North
+                if look_answer in ("north", "n", "forward"):
+                    clear()
+                    print(ROOM_DESIGN_NORTH)
+                    type_delay(f"{Fore.BLUE}{look_answer}:{Fore.WHITE}" +
+                    " You see a door… What do you do?\n")
+                    north_answer = input("Answer: ").lower()
+                    # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
+                    term_door = "inspect"
+                    words_inspect = north_answer.split()
+                    term_door_approach = "approach"
+                    words_approach = north_answer.split()
+                    term_door_open = "open"
+                    words_open = north_answer.split()
+                    # When the user inspect the door
+                    if term_door in words_inspect:
+                        type_delay(STORY_NORTH_INSPECT)
+                        north_inspect_answer = input("Answer: ").lower()
+                        while True:
+                            if north_inspect_answer in ("y", "yes"):
+                                north_yes_input = int(input("Please enter the 4 digit code: "))
+                                str_int = str(north_yes_input)
+                                if north_yes_input == 3012:
+                                    type_delay("You entered the 4 digit code,"
+                                    " you fiddle with the lock and"
+                                    " all of a sudden *CLICK*. You unlocked the door!")
+                                    clear()
+                                    print(ESCAPED_MSG)
+                                    input("Press Enter to continue...")
+                                    main_menu()
+                                elif len(str_int) < 4:
+                                    print(f"It is a 4 digit combination lock,"
+                                    f" you entered {str_int}."
+                                    f" That is {len(str_int)} digits,"
+                                    " you need to enter a 4 digit code.")
+                                elif len(str_int) > 4:
+                                    print(f"It is a 4 digit combination lock, you entered {str_int}."
+                                    f" That is {len(str_int)} digits, you need"
+                                    " to enter a 4 digit code.")
+                                else:
+                                    print(wrong_input)
+                            elif north_inspect_answer in ("n", "no"):
+                                break
+                    # When the user approach the door
+                    elif term_door_approach in words_approach:
+                        type_delay(STORY_NORTH_APPROACH)
+                    # When the user open the door
+                    elif term_door_open in words_open:
+                        type_delay(STORY_NORTH_OPEN)
+                    elif north_answer == "back":
+                        return
+                    else:
+                        print(wrong_input)
 
-        if term in words:
-            type_delay(f"Where do you look first?\n"
-            f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
-            f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
-            f"Behind You{Fore.RED}(South){Fore.WHITE} "
-            f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
-            look_answer = input("Answer: ").lower()
-            # When the user look to the North
-            if look_answer in ("north", "n", "forward"):
-                clear()
-                print(ROOM_DESIGN_NORTH)
-                type_delay(f"{Fore.BLUE}{look_answer}:{Fore.WHITE}" +
-                " You see a door… What do you do?\n")
-                north_answer = input("Asnwer: ").lower()
-                # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-                # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-                # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-                # MULTIPLE TERMS AS KBROTHER WHEN HE COMES BACK
-
-                # When the user inspect the door
-                term_door = "inspect"
-                words_inspect = north_answer.split()
-                term_door_approach = "approach"
-                words_approach = north_answer.split()
-                term_door_open = "open"
-                words_open = north_answer.split()
-                if  term_door in words_inspect:
-                    type_delay(STORY_NORTH_INSPECT)
-                    
-                # When the user approach the door
-                elif term_door_approach in words_approach:
-                    type_delay(STORY_NORTH_APPROACH)
-                # When the user open the door
-                elif term_door_open in words_open:
-                    type_delay(STORY_NORTH_OPEN)
-                elif north_answer == "back":
-                    print(start_game)
+                # When the user look to the East
+                elif look_answer in ("east", "e", "right"):
+                    clear()
+                    print(ROOM_DESIGN_EAST)
+                    type_delay(f"{Fore.GREEN}{look_answer}:{Fore.WHITE}" +
+                    "You Turn to your right and see a big bookshelf"
+                    " that is almost as wide as the wall. "
+                    "What do you do?\n")
+                # When the user look to the South
+                elif look_answer in ("south", "s", "behind", "behind me", "turn around"):
+                    clear()
+                    print(ROOM_DESIGN_SOUTH)
+                    type_delay(f"{Fore.RED}{look_answer}:{Fore.WHITE}" +
+                    "You See a table with two chairs on each side. What do you do?\n")
+                # When the user look to the West
+                elif look_answer in ("west", "w", "left"):
+                    clear()
+                    print(ROOM_DESIGN_WEST)
+                    type_delay(f"{Fore.YELLOW}{look_answer}:{Fore.WHITE}" +
+                    "You turn to your left, you see a desk. What do you do?\n")
                 else:
                     print(wrong_input)
 
-            # When the user look to the East
-            elif look_answer in ("east", "e", "right"):
-                clear()
-                print(ROOM_DESIGN_EAST)
-                type_delay(f"{Fore.GREEN}{look_answer}:{Fore.WHITE}" +
-                "You Turn to your right and see a big bookshelf that is almost as wide as the wall. "
-                "What do you do?\n")
-            # When the user look to the South
-            elif look_answer in ("south", "s", "behind", "behind me", "turn around"):
-                clear()
-                print(ROOM_DESIGN_SOUTH)
-                type_delay(f"{Fore.RED}{look_answer}:{Fore.WHITE}" +
-                "You See a table with two chairs on each side. What do you do?\n")
-            # When the user look to the West
-            elif look_answer in ("west", "w", "left"):
-                clear()
-                print(ROOM_DESIGN_WEST)
-                type_delay(f"{Fore.YELLOW}{look_answer}:{Fore.WHITE}" +
-                "You turn to your left, you see a desk. What do you do?\n")
-            else:
-                print(wrong_input)
+def north_face():
+    """
+    When the user face north, this functino will be shown.
+    """
+    
 # Helper Functions
 def clear():
     """
@@ -156,8 +182,8 @@ def exit_app():
     print("\nAre you positive you want to quit the app?\n")
     while True:
         answer = input(
-            f"Type {Fore.BLUE}yes/YES/Y{Fore.WHITE} if you want to quit the app "
-            f"or type {Fore.BLUE}no/NO/N{Fore.WHITE} if you want to stay and try again.\n"
+            f"Type {Fore.BLUE}Y{Fore.WHITE} if you want to quit the app "
+            f"or type {Fore.BLUE}N{Fore.WHITE} if you want to stay and try again.\n"
         )
         if answer == "yes" or "YES" or "Y" or "y":
             type_delay("Closing the application... Have a Nice day!")
@@ -175,15 +201,16 @@ def type_delay(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(.05)
-    time.sleep(1)
+        time.sleep(.03)
+    time.sleep(0.4)
 
 def wrong_input(answer):
     """
     When the user gives an invalid input, the function will be called
     """
+    clear()
     print(f"\t{Fore.RED}Wrong command: {Fore.WHITE}'{answer}' is not a valid command."
-    f"Please try again.\n"
+    f" Please try again.\n"
     )
 
 def information_menu():

@@ -166,7 +166,18 @@ it seems like you would need a \033[5;35m4 digit\033[0;0m code to unlock. Do you
 STORY_NORTH_OPEN = f"""
 As you reached out to the door handle to open the door, you notice a \033[5;35mPurple\033[0;0m combination padlock. 
 You first have to enter a \033[5;35m4 digit\033[0;0m code. Do you want to unlock the door? (Y/N)
+"""
 
+ESCAPED_MSG = """
+ __     ______  _    _ _ _____  ______   ______ _____  ______ ______ _ _ 
+ \ \   / / __ \| |  | ( )  __ \|  ____| |  ____|  __ \|  ____|  ____| | |
+  \ \_/ / |  | | |  | |/| |__) | |__    | |__  | |__) | |__  | |__  | | |
+   \   /| |  | | |  | | |  _  /|  __|   |  __| |  _  /|  __| |  __| | | |
+    | | | |__| | |__| | | | \ \| |____  | |    | | \ \| |____| |____|_|_|
+    |_|  \____/ \____/  |_|  \_\______| |_|    |_|  \_\______|______(_|_)
+__________________________________________________________________________
+
+Congratulations! You have managed to escaped the room. 
 """
 
 TIPS_1 = """
