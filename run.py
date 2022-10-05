@@ -1,15 +1,12 @@
 """
 Start of the Project and File
 """
-from asyncio import constants
-from asyncore import loop
-import numbers
+from operator import truediv
 import os
-from symbol import term
+from pickle import TRUE
 import sys
+import random
 from threading import Event
-from tkinter.tix import TEXT  # To clear the console
-import datetime  # To get the hour of the day
 import time  # To give a delay when typing
 import colorama # Import Colors into project
 from colorama import Fore
@@ -20,7 +17,7 @@ colorama.init()
 #Global Var for the username, age and location
 USERNAME = ""
 # Default scenarios
-first_scenario = ["look", "approach", "inspect", "walk", "investigate"]
+first_scenario = ["look", "approach", "inspect", "walk", "investigate", "forward"]
 # Possible inputs for looking to the North
 north_scenario = ["north", "forward", "straight", "ahead", "infront"]
 # When the user look to the East
@@ -53,7 +50,7 @@ desk_scenario = ["approach", "inspect"]
 # Possible yes anwers
 north_inspect_scenario = ["y", "yes", "indeed", "of course", "ofcourse"]
 # Possible Death anwers
-death_scenario = ["die", "kill myself", "end myself", "cut myself", "off myself"]
+death_scenario = ["die", "kill myself", "end myself", "cut myself", "off myself", "suicide"]
 
 def main_menu():
     """
@@ -62,6 +59,7 @@ def main_menu():
     clear()
     print(TITLE)
     print(MAIN_TEXT)
+    print(random.choices(TIPS_1,TIPS_2))
 
     while True:
         answer = input(
@@ -152,6 +150,7 @@ def landing_start():
                 " I wonder if you'll use them. ")
             else:
                 type_delay(wrong_input())
+                landing_start()
         elif "nothing" in answer:
             type_delay("You should at least try... otherwise, why are you playing the game?")
         elif any(x in answer for x in back_scenario):
@@ -304,26 +303,34 @@ def south_face(look_answer):
     type_delay(f"{Fore.RED}{look_answer}: {Fore.WHITE}" +
     "You See a table with two chairs on each side. What do you do?\n")
     south_scenario_answer = input("Answer: ").lower()
-    while True:
+    loop_var = False
+    while not loop_var:
         if any(x in south_scenario_answer for x in south_scenario_inpsect):
+            # loop_var = True
             print(INSPECT_CHAIRS)
             Event().wait(3)
             south_face(look_answer)
         elif "sit" in south_scenario_answer:
+            #loop_var = True
             type_delay(SIT_CHAIRS)
             Event().wait(3)
             south_face(look_answer)
         elif "stand" in south_scenario_answer:
+            #loop_var = True
             type_delay(STAND_CHAIR)
             Event().wait(3)
             south_face(look_answer)
         elif any(x in south_scenario_answer for x in back_scenario):
+            #oop_var = True
             landing_start()
         elif any(x in south_scenario_answer for x in north_scenario):
+            #loop_var = True
             north_face(look_answer)
         elif any(x in south_scenario_answer for x in east_scenario):
+            #loop_var = True
             east_face(look_answer)
         elif any(x in south_scenario_answer for x in west_scenario):
+            #oop_var = True
             west_face(look_answer)
         else:
             type_delay(wrong_input())
