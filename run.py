@@ -1,16 +1,13 @@
 """
 Start of the Project and File
 """
-from operator import truediv
 import os
-from pickle import TRUE
 import sys
 import random
 from threading import Event
 import time  # To give a delay when typing
 import colorama # Import Colors into project
 from colorama import Fore
-from colored import fg, bg, attr
 from text import *
 colorama.init()
 
