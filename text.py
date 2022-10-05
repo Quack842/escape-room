@@ -180,6 +180,36 @@ You take the first red book you see, the outside of the book doesnt
 seem like it has anything special to it, do you open the book? (Y/N)
 """
 
+INSPECT_CHAIRS = f"""
+You approach the table and chairs, as you get closer, you notice that there is nothing to notice with the table and chairs. 
+Nothing special to see here.\n
+"""
+
+SIT_CHAIRS = f"""
+You walk closer to the table, pull back the chair and sit on the chair… As you are sitting, you start to think about your situation. 
+You wonder how on earth you got in this mysterious room and why you have no memory of how you got here. You fall into deep thought, 
+the more you think the faster time feels, but there is no way of knowing how much time has passed since there is no way of 
+keeping track of time in this room. 
+3 hours passed by.\n
+"""
+
+STAND_CHAIR = f"""
+You walk closer with determination, climb on and Yell “HAH! King Of the Hill!!”… As you say it you 
+remember that you are the only one in the room. Personally, at this point Im worried about your insanity. 
+Please Get off the table.\n
+"""
+
+DESK_INPSECT = """
+You approach the desk, as you get closer, you first notice the knife on the desk. Afterwards you see that the desk also have 2 drawers. 
+What do you do?\n
+"""
+
+LEFT_DRAWER = """
+The drawer is very difficult to open, but you pull harder. You used all your strength to open this one drawer... but it is shut tightly. 
+I dont think it should open.\n
+"""
+
+
 OPEN_RED_BOOK = f"""
 You open the book… You start reading the first line, the book was so interesting, that you spend almost 
 2 hours just standing there and reading this book… Fascinating! But… your legs are kinda sore. 
