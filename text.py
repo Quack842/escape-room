@@ -167,22 +167,24 @@ What do you do?
 
 INSPECT_BOOK_PURPLE = f"""
 After inspecting the purple books, you notice that each of the book have a number and alphabet each. 
-The first book you picked up has a letter {Fore.LIGHTCYAN_EX}E{Fore.WHITE} and a number {Fore.LIGHTCYAN_EX}3{Fore.WHITE} on it, 
-the second book has the letter {Fore.LIGHTGREEN_EX}K{Fore.WHITE} and number {Fore.LIGHTGREEN_EX}0{Fore.WHITE} on it. 
-The third book has the letter {Fore.LIGHTMAGENTA_EX}Q{Fore.WHITE} and a number {Fore.LIGHTMAGENTA_EX}1{Fore.WHITE} on it. 
-The forth Book has a letter {Fore.LIGHTYELLOW_EX}Y{Fore.WHITE} and … no number? It seems like a sticker of a ostrobogulous duck was on the area where the number should be. 
+The first book you picked up has a letter {Fore.LIGHTCYAN_EX}K{Fore.WHITE} and a number {Fore.LIGHTCYAN_EX}0{Fore.WHITE} on it, 
+the second book has the letter {Fore.LIGHTGREEN_EX}Y{Fore.WHITE} and number {Fore.LIGHTGREEN_EX}2{Fore.WHITE} on it. 
+The third book has the letter {Fore.LIGHTMAGENTA_EX}E{Fore.WHITE} and a number {Fore.LIGHTMAGENTA_EX}3{Fore.WHITE} on it. 
+The forth Book has a letter {Fore.LIGHTYELLOW_EX}Q{Fore.WHITE} and … no number? It seems like a sticker of a ostrobogulous duck was on the area where the number should be. 
 Something sharp will work to scratch off this weird sticker.\n
 What do you do?
 """
 
-STORY_NORTH_APPROACH = f"""
-As you get closer to the door, you notice a \033[5;35mPurple\033[0;0m combination padlock on the door, 
-it seems like you would need a \033[5;35m4 digit\033[0;0m code to unlock. Do you want to unlock the door? (Y/N)
+INSPECT_BOOK_RED = f"""
+You take the first red book you see, the outside of the book doesnt 
+seem like it has anything special to it, do you open the book? (Y/N)
 """
 
-STORY_NORTH_OPEN = f"""
-As you reached out to the door handle to open the door, you notice a \033[5;35mPurple\033[0;0m combination padlock. 
-You first have to enter a \033[5;35m4 digit\033[0;0m code. Do you want to unlock the door? (Y/N)
+OPEN_RED_BOOK = f"""
+You open the book… You start reading the first line, the book was so interesting, that you spend almost 
+2 hours just standing there and reading this book… Fascinating! But… your legs are kinda sore. 
+You have a feeling that the other red books will have the same results. 
+You are facing the bookshelf again, What do you do now?
 """
 
 ESCAPED_MSG = """
