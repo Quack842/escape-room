@@ -1,26 +1,25 @@
 """
 Start of the Project and File
 """
-import os
 import colorama
 from colorama import Fore
 colorama.init()
 
-TITLE = """
+TITLE = f"""
 _________________________________________________________________
 
-███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗             
+{Fore.BLUE}███████╗███████╗ ██████╗ █████╗ ██████╗ ███████╗             
 ██╔════╝██╔════╝██╔════╝██╔══██╗██╔══██╗██╔════╝             
-█████╗  ███████╗██║     ███████║██████╔╝█████╗               
+█████╗  ███████╗██║     ███████║██████╔╝█████╗{Fore.LIGHTBLACK_EX}              
 ██╔══╝  ╚════██║██║     ██╔══██║██╔═══╝ ██╔══╝               
 ███████╗███████║╚██████╗██║  ██║██║     ███████╗             
-╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝             
+╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝     ╚══════╝ {Fore.LIGHTBLUE_EX}            
                         ██████╗  ██████╗  ██████╗ ███╗   ███╗
                         ██╔══██╗██╔═══██╗██╔═══██╗████╗ ████║
-                        ██████╔╝██║   ██║██║   ██║██╔████╔██║
+                        ██████╔╝██║   ██║██║   ██║██╔████╔██║{Fore.LIGHTBLACK_EX}
                         ██╔══██╗██║   ██║██║   ██║██║╚██╔╝██║
                         ██║  ██║╚██████╔╝╚██████╔╝██║ ╚═╝ ██║
-                        ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝
+                        ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝{Fore.WHITE}
                                                              
 _______________________________________________________________                                                                                     
 """
@@ -144,13 +143,13 @@ ___________________________________________________________________________
 Want to learn how to play the Escape Room game? Well it is very simple and easy. 
 Your job is to escape the room and search for hidden clues and messages with commands.
 You will be given a scenario and you can give a command to further the story. The command 
-can be anything related to the scenario. For Example: The scenario is as follow...\n
-You find yourself in a car... What do you do?\n
+can be anything related to the scenario. For Example: The scenario is as follow...
+You find yourself in a car... What do you do?
 
 You can answer anything down the line like:
-Answer: Start the car\n
-Answer: Look around the car\n
-and so on.\n
+Answer: Start the car
+Answer: Look around the car
+and so on.
 
 Depending on your answer, the story will progress accordingly.
 """
@@ -241,16 +240,23 @@ You open the book… You start reading the first line, the book was so interesti
 You have a feeling that the other red books will have the same results.
 """
 
-ESCAPED_MSG = """
- __     ______  _    _ _ _____  ______   ______ _____  ______ ______ _ _ 
+ESCAPED_MSG = f"""
+{Fore.BLUE} __     ______  _    _ _ _____  ______   ______ _____  ______ ______ _ _ 
  \ \   / / __ \| |  | ( )  __ \|  ____| |  ____|  __ \|  ____|  ____| | |
-  \ \_/ / |  | | |  | |/| |__) | |__    | |__  | |__) | |__  | |__  | | |
-   \   /| |  | | |  | | |  _  /|  __|   |  __| |  _  /|  __| |  __| | | |
-    | | | |__| | |__| | | | \ \| |____  | |    | | \ \| |____| |____|_|_|
-    |_|  \____/ \____/  |_|  \_\______| |_|    |_|  \_\______|______(_|_)
+  \ \_/ / |  | | |  | |/| |__) | |__    | |__  | |__) | |__  | |__  | | |{Fore.LIGHTBLACK_EX}
+   \   /| |  | | |  | | |  _  /|  __|   |  __| |  _  /|  __| |  __| | | |{Fore.LIGHTBLUE_EX}
+    | | | |__| | |__| | | | \ \| |____  | |    | | \ \| |____| |____|_|_|{Fore.LIGHTBLACK_EX}
+    |_|  \____/ \____/  |_|  \_\______| |_|    |_|  \_\______|______(_|_){Fore.WHITE}
 __________________________________________________________________________
 
-Congratulations! You have managed to escaped the room. 
+Congratulations! You have managed to escaped the room.
+Walking out of the escape room, you feel this since that
+you have overcame a huge maintain...
+when in reality.. you just finished a game
+where you could have gotten the unlock code
+from the github code itself.
+
+Thank You for playing and I hope you have a wonderful day!! 
 """
 
 GOODBYE = """

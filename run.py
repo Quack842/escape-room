@@ -13,8 +13,12 @@ colorama.init()
 
 #Global Var for the username, age and location
 USERNAME = ""
+# Starting scenarios
+start_scenario = ["start", "begin", "let's go", "started", "wall", "anywhere"]
+# Info scenarios
+info_scenario = ["info", "information"]
 # Default scenarios
-first_scenario = ["look", "approach", "inspect", "walk", "investigate", "forward"]
+first_scenario = ["look", "approach", "inspect", "walk", "investigate", "forward", "anything"]
 # Possible inputs for looking to the North
 north_scenario = ["north", "forward", "straight", "ahead", "infront"]
 # When the user look to the East
@@ -65,14 +69,12 @@ def main_menu():
             f"If you want to exit the application, just type {Fore.BLUE}exit{Fore.WHITE}\n" +
             "Answer: "
         ).lower()
-        if answer in ("start", "strt"):
+        if any(x in answer for x in start_scenario) or answer == "s":
             start_game()
-        elif answer in ("exit"):
+        elif any(x in answer for x in exit_scenario):
             exit_app()
-        elif answer in ("info", "information", "i"):
+        elif any(x in answer for x in info_scenario) or answer == "i":
             information_menu()
-        else:
-            type_delay(wrong_input())
 
 def get_username():
     """
@@ -81,17 +83,22 @@ def get_username():
     while True:
         name = input("What should I call you?\n" + "Answer: ").upper().strip()
         if len(name) < 2:
-            print("The Length of the username is too short, please try again")
+            clear()
+            print(f"{Fore.RED}The Length of the username is too short,"
+            f" please try again{Fore.WHITE}")
         elif len(name) > 15:
-            print("The username is too long, try a shorter username.")
+            clear()
+            print(f"{Fore.RED}The username is too long, try a shorter username.{Fore.WHITE}")
         elif any(char.isdigit() for char in name):
-            print("The username cannot contain any numbers.")
+            clear()
+            print(f"{Fore.RED}The username cannot contain any numbers.{Fore.WHITE}")
         elif all(char.isalpha() or char.isspace() for char in name):
             global USERNAME
             USERNAME = " ".join(name.split()).title()
             break
         else:
-            print("Your name cannot contain any symbols, please try again.")
+            clear()
+            print(f"{Fore.RED}Your name cannot contain any symbols, please try again.{Fore.WHITE}")
 
 def start_game():
     """
@@ -110,43 +117,41 @@ def landing_start():
     When the user want to come back to this scene
     """
     type_delay(USERNAME)
-    type_delay(STORY_START)
-    answer = input("Answer: ").lower()
     while True:
+        type_delay(STORY_START)
+        answer = input("Answer: ").lower()
         if any(x in answer for x in first_scenario):
-            clear()
-            print(ROOM_DESIGN)
-            type_delay(f"Where do you look?\n"
-            f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
-            f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
-            f"Behind You{Fore.RED}(South){Fore.WHITE} "
-            f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
-            look_answer = input("Answer: ").lower()
-            if any(x in look_answer for x in north_scenario) or look_answer == "n":
-                north_face(look_answer)
-            # When the user looks east
-            elif any(x in look_answer for x in east_scenario) or look_answer == "e":
-                east_face(look_answer)
-            # When the user look to the South
-            elif any(x in look_answer for x in south_scenario) or look_answer == "s":
-                south_face(look_answer)
-            # When the user look to the West
-            elif any(x in look_answer for x in west_scenario) or look_answer == "w":
-                west_face(look_answer)
-            # When the user want to exit
-            elif any(x in look_answer for x in exit_scenario):
-                exit_app()
-            # When the user lwant to go back
-            elif any(x in look_answer for x in back_scenario):
-                landing_start()
-            elif "up" in look_answer:
-                type_delay("You look up... there is a single light bulb flickering above you. ")
-            elif "down" in look_answer:
-                type_delay("You look down... you're looking at your feet..."
-                " I wonder if you'll use them. ")
-            else:
-                type_delay(wrong_input())
-                landing_start()
+            while True:
+                clear()
+                print(ROOM_DESIGN)
+                type_delay(f"Where do you look?\n"
+                f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
+                f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
+                f"Behind You{Fore.RED}(South){Fore.WHITE} "
+                f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
+                look_answer = input("Answer: ").lower()
+                if any(x in look_answer for x in north_scenario) or look_answer == "n":
+                    north_face(look_answer)
+                # When the user looks east
+                elif any(x in look_answer for x in east_scenario) or look_answer == "e":
+                    east_face(look_answer)
+                # When the user look to the South
+                elif any(x in look_answer for x in south_scenario) or look_answer == "s":
+                    south_face(look_answer)
+                # When the user look to the West
+                elif any(x in look_answer for x in west_scenario) or look_answer == "w":
+                    west_face(look_answer)
+                # When the user want to exit
+                elif any(x in look_answer for x in exit_scenario):
+                    exit_app()
+                # When the user lwant to go back
+                elif any(x in look_answer for x in back_scenario):
+                    landing_start()
+                elif "up" in look_answer:
+                    type_delay("You look up... there is a single light bulb flickering above you. ")
+                elif "down" in look_answer:
+                    type_delay("You look down... you're looking at your feet..."
+                    " I wonder if you'll use them. ")
         elif "nothing" in answer:
             type_delay("You should at least try... otherwise, why are you playing the game?")
         elif any(x in answer for x in back_scenario):
@@ -157,9 +162,6 @@ def landing_start():
             type_delay("Ireland suicide Helpline: 1800 247 247")
             Event().wait(3)
             clear()
-            landing_start()
-        else:
-            type_delay(wrong_input())
             landing_start()
 
 def north_face(look_answer):
@@ -173,9 +175,9 @@ def north_face(look_answer):
     north_answer = input("Answer: ").lower()
     # When the user inspect the door
     if any(x in north_answer for x in door_scenario):
-        type_delay(STORY_NORTH_INSPECT)
-        north_inspect_answer = input("Answer: ").lower()
         while True:
+            type_delay(STORY_NORTH_INSPECT)
+            north_inspect_answer = input("Answer: ").lower()
             if any(x in north_inspect_answer for x in north_inspect_scenario):
                 north_yes_input = input("Please enter the 4 digit code ('back' to return): ")
                 #while True:
@@ -408,6 +410,7 @@ def wrong_input():
     """
     When the user enters an invalid
     """
+    clear()
     print(f"{Fore.RED}Invalid command{Fore.WHITE}, please make sure of spelling and try again")
 
 def information_menu():
@@ -424,10 +427,10 @@ def animate_rocket():
     distance_from_top = 20
     while True:
         print("\n" * distance_from_top)
-        print("     .    /\             .    /\             .    /\   .    ")
-        print(" .     .  ||        .         ||   .    .         ||     .  ")
-        print("   .   .  ||      .           ||      .     .     ||   .    ")
-        print("     .   /||\          .     /||\       .        /||\    .   ")
+        print(f"     {Fore.BLUE}.{Fore.WHITE}    /\             {Fore.RED}.{Fore.WHITE}    /\             {Fore.BLUE}.{Fore.WHITE}    /\   {Fore.BLUE}.{Fore.WHITE}        {Fore.RED}.{Fore.WHITE}    /\ ")
+        print(f" {Fore.GREEN}.{Fore.WHITE}     {Fore.YELLOW}.{Fore.WHITE}  ||        {Fore.YELLOW}.{Fore.WHITE}         ||   {Fore.YELLOW}.{Fore.WHITE}    {Fore.GREEN}.{Fore.WHITE}         ||     {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}    {Fore.YELLOW}.{Fore.WHITE}  ||")
+        print(f"   {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}  ||      {Fore.GREEN}.{Fore.WHITE}           ||      {Fore.RED}.{Fore.WHITE}     {Fore.BLUE}.{Fore.WHITE}     ||   {Fore.YELLOW}.{Fore.WHITE}      {Fore.RED}.{Fore.WHITE}   {Fore.BLUE}.{Fore.WHITE}  ||")
+        print(f"     {Fore.RED}.{Fore.WHITE}   /||\          {Fore.BLUE}.{Fore.WHITE}     /||\       {Fore.RED}.{Fore.WHITE}        /||\    {Fore.YELLOW}.{Fore.WHITE}      {Fore.GREEN}.{Fore.WHITE}   /||\ ")
         time.sleep(0.2)
         os.system('clear')
         distance_from_top -= 1
