@@ -60,7 +60,7 @@ ROOM_DESIGN_NORTH = f"""
 """
 
 ROOM_DESIGN_EAST = f"""
-_____________________________________{Fore.GREEN}___{Fore.WHITE}
+ _____________________________________{Fore.GREEN}___{Fore.WHITE}
 |             |___________|          {Fore.GREEN}    |{Fore.WHITE}
 |                                    {Fore.GREEN}    |{Fore.WHITE}
 |                                    {Fore.GREEN} ___|{Fore.WHITE}
@@ -135,13 +135,14 @@ INFORMATION_TEXT = """
 ___________________________________________________________________________
 
 Want to learn how to play the Escape Room game? Well it is very simple and easy. 
+Your job is to escape the room and search for hidden clues and messages with commands.
 You will be given a scenario and you can give a command to further the story. The command 
 can be anything related to the scenario. For Example: The scenario is as follow...\n
 You find yourself in a car... What do you do?\n
 
 You can answer anything down the line like:
 Answer: Start the car\n
-Answer: Look around\n
+Answer: Look around the car\n
 and so on.\n
 
 Depending on your answer, the story will progress accordingly.
@@ -173,6 +174,23 @@ The third book has the letter {Fore.LIGHTMAGENTA_EX}E{Fore.WHITE} and a number {
 The forth Book has a letter {Fore.LIGHTYELLOW_EX}Q{Fore.WHITE} and … no number? It seems like a sticker of a ostrobogulous duck was on the area where the number should be. 
 Something sharp will work to scratch off this weird sticker.\n
 What do you do?
+"""
+
+SUICIDE_TEXT = """
+              _ _  _____ _______ ____  _____  _ _ 
+            | | |/ ____|__   __/ __ \|  __ \| | |
+            | | | (___    | | | |  | | |__) | | |
+            | | |\___ \   | | | |  | |  ___/| | |
+            |_|_|____) |  | | | |__| | |    |_|_|
+            (_|_)_____/   |_|  \____/|_|    (_|_)
+            _______________________________________
+   _____   ____  _   _ _ _______   _____   ____    _____ _______ 
+ |  __ \ / __ \| \ | ( )__   __| |  __ \ / __ \  |_   _|__   __|
+ | |  | | |  | |  \| |/   | |    | |  | | |  | |   | |    | |   
+ | |  | | |  | | . ` |    | |    | |  | | |  | |   | |    | |   
+ | |__| | |__| | |\  |    | |    | |__| | |__| |  _| |_   | |   
+ |_____/ \____/|_| \_|    |_|    |_____/ \____/  |_____|  |_|   
+_________________________________________________________________
 """
 
 INSPECT_BOOK_RED = f"""
@@ -213,8 +231,7 @@ I dont think it should open.\n
 OPEN_RED_BOOK = f"""
 You open the book… You start reading the first line, the book was so interesting, that you spend almost 
 2 hours just standing there and reading this book… Fascinating! But… your legs are kinda sore. 
-You have a feeling that the other red books will have the same results. 
-You are facing the bookshelf again, What do you do now?
+You have a feeling that the other red books will have the same results.
 """
 
 ESCAPED_MSG = """

@@ -19,20 +19,41 @@ colorama.init()
 
 #Global Var for the username, age and location
 USERNAME = ""
+# Default scenarios
+first_scenario = ["look", "approach", "inspect", "walk", "investigate"]
 # Possible inputs for looking to the North
-north_scenario = ["north", "n", "forward", "straight", "ahead"]
+north_scenario = ["north", "forward", "straight", "ahead", "infront"]
 # When the user look to the East
-east_scenario = ["east", "e", "right"]
+east_scenario = ["east", "right"]
 # When the user look to the South
-south_scenario = ["south", "s", "behind", "backwards", "down"]
+south_scenario = ["south", "behind", "backwards"]
 # When the user look to the West
-west_scenario = ["west", "w", "left"]
+west_scenario = ["west", "left"]
 # When the user quit or exit the game
 exit_scenario = ["exit", "quit", "give up", "terminate"]
 # When the user wants to go back
 back_scenario = ["back", "rewind", "step back"]
+# When the player enter any of the following key words for open north door
+door_scenario = ["inspect", "approach", "open", "near", "look", "break", "unlock"]
+# When the user inspect the bookshelf
+bookshelf_scenario = ["inspect", "approach", "closer", "take",
+"open", "investigate", "read", "climb"]
+# When the user tries to move the bookshelf
+move_scenario = ["move", "push", "shove"]
+# When user inspect the purple book
+term_purple_scenario = ["purple"]
+# When user inspects the Red books
+term_red_scenario = ["red"]
+# Sticker scenario
+purple_book_scenario = ["scratch", "knife"]
+# South Scenario
+south_scenario_inpsect = ["approach", "inspect", "climb", "kick", "investigate"]
+# Scenarios for Desk
+desk_scenario = ["approach", "inspect"]
 # Possible yes anwers
 north_inspect_scenario = ["y", "yes", "indeed", "of course", "ofcourse"]
+# Possible Death anwers
+death_scenario = ["die", "kill myself", "end myself", "cut myself", "off myself"]
 
 def main_menu():
     """
@@ -57,7 +78,7 @@ def main_menu():
         elif answer in ("info", "information", "i"):
             information_menu()
         else:
-            print(wrong_input())
+            type_delay(wrong_input())
 
 def get_username():
     """
@@ -88,16 +109,15 @@ def start_game():
     get_username()
 
     print(ROOM_DESIGN)
-    type_delay(USERNAME)
     landing_start()
 
 def landing_start():
     """
     When the user want to come back to this scene
     """
+    type_delay(USERNAME)
     type_delay(STORY_START)
     answer = input("Answer: ").lower()
-    first_scenario = ["look", "approach", "inspect", "walk"]
     while True:
         if any(x in answer for x in first_scenario):
             clear()
@@ -108,16 +128,16 @@ def landing_start():
             f"Behind You{Fore.RED}(South){Fore.WHITE} "
             f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
             look_answer = input("Answer: ").lower()
-            if any(x in look_answer for x in north_scenario):
+            if any(x in look_answer for x in north_scenario) or look_answer == "n":
                 north_face(look_answer)
             # When the user looks east
-            elif any(x in look_answer for x in east_scenario):
+            elif any(x in look_answer for x in east_scenario) or look_answer == "e":
                 east_face(look_answer)
             # When the user look to the South
-            elif any(x in look_answer for x in south_scenario):
+            elif any(x in look_answer for x in south_scenario) or look_answer == "s":
                 south_face(look_answer)
             # When the user look to the West
-            elif any(x in look_answer for x in west_scenario):
+            elif any(x in look_answer for x in west_scenario) or look_answer == "w":
                 west_face(look_answer)
             # When the user want to exit
             elif any(x in look_answer for x in exit_scenario):
@@ -131,13 +151,21 @@ def landing_start():
                 type_delay("You look down... you're looking at your feet..."
                 " I wonder if you'll use them. ")
             else:
-                print(wrong_input())
+                type_delay(wrong_input())
         elif "nothing" in answer:
-            print("You should at least try... otherwise, why are you playing the game?")
+            type_delay("You should at least try... otherwise, why are you playing the game?")
         elif any(x in answer for x in back_scenario):
             landing_start()
+        elif any(x in answer for x in death_scenario):
+            clear()
+            print(SUICIDE_TEXT)
+            type_delay("Ireland suicide Helpline: 1800 247 247")
+            Event().wait(3)
+            clear()
+            landing_start()
         else:
-            print(wrong_input())
+            type_delay(wrong_input())
+            landing_start()
 
 def north_face(look_answer):
     """
@@ -148,8 +176,6 @@ def north_face(look_answer):
     type_delay(f"{Fore.BLUE}{look_answer}:{Fore.WHITE}" +
     " You see a door… What do you do?\n")
     north_answer = input("Answer: ").lower()
-    # When the player enter any of the following key words
-    door_scenario = ["inspect", "approach", "open", "near", "look", "break"]
     # When the user inspect the door
     if any(x in north_answer for x in door_scenario):
         type_delay(STORY_NORTH_INSPECT)
@@ -158,8 +184,8 @@ def north_face(look_answer):
             if any(x in north_inspect_answer for x in north_inspect_scenario):
                 north_yes_input = input("Please enter the 4 digit code ('back' to return): ")
                 #while True:
-                if north_yes_input == 3012:
-                    type_delay("You entered the 4 digit code,"
+                if north_yes_input == str(3012):
+                    type_delay("You entered the \033[5;35m4\033[0;0m digit code,"
                     " you fiddle with the lock and"
                     " all of a sudden *CLICK*. You unlocked the door!")
                     clear()
@@ -167,27 +193,30 @@ def north_face(look_answer):
                     input("Press Enter to continue...")
                     main_menu()
                 elif len(north_yes_input) < 4:
-                    print(f"It is a 4 digit combination lock,"
-                    f" you entered {north_yes_input}."
-                    f" That is {len(north_yes_input)} digits,"
+                    print(f"It is a \033[5;35m4\033[0;0m digit combination lock,"
+                    f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
+                    f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
                     " you need to enter a 4 digit code.")
                 elif len(north_yes_input) > 4:
-                    print(f"It is a 4 digit combination lock, you entered {north_yes_input}."
-                    f" That is {len(north_yes_input)} digits, you need"
+                    print(f"It is a 4 digit combination lock,"
+                    f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
+                    f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
                     " to enter a 4 digit code.")
                 elif any(x in north_yes_input for x in back_scenario):
                     clear()
-                    print("Going Back...")
+                    type_delay("Going Back...")
+                    type_delay("..")
+                    type_delay(".")
                     Event().wait(1)
                     landing_start()
                 elif not north_yes_input.isnumeric():
                     print("Only numbers please")
                 elif north_yes_input != "3012":
-                    print("Incorrect, try again")
+                    print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again")
                 else:
-                    print(wrong_input())
+                    type_delay(wrong_input())
             elif north_inspect_answer in ("n", "no"):
-                north_face(look_answer)
+                landing_start()
     elif north_answer == "nothing":
         print("You should at least do SOMETHING!")
         return
@@ -200,7 +229,7 @@ def north_face(look_answer):
     elif any(x in north_answer for x in west_scenario):
         west_face(look_answer)
     else:
-        print(wrong_input())
+        type_delay(wrong_input())
 
 def east_face(look_answer):
     """
@@ -213,46 +242,48 @@ def east_face(look_answer):
     " that is almost as wide as the wall. "
     "What do you do?\n")
     east_answer = input("Answer: ").lower()
-    # When the user inspect the bookshelf
-    bookshelf_scenario = ["inspect", "approach", "closer", "take", "open"]
-    # When the user tries to move the bookshelf
-    move_scenario = ["move", "push", "shove"]
-    # When the user wants to go back
-    back_scenario = ["back", "rewind", "step back"]
     if any(x in east_answer for x in bookshelf_scenario):
         type_delay(STORY_EAST_INSPECT)
         term_bookshelf= input("Answer: ").lower()
-        # When user inspect the purple book
-        term_purple_scenario = ["purple"]
-        # When user inspects the Red books
-        term_red_scenario = ["red"]
         if any(x in term_bookshelf for x in term_purple_scenario):
             type_delay(INSPECT_BOOK_PURPLE)
-            purple_book_answer = input("Answer: ").lower
-            purple_book_scenario = ["scratch", "knife"]
-            if any(x in purple_book_answer for x in purple_book_scenario):
-                print("With what do you scratch it with?")
-                scratch_answer = input("Asnwer: ").lower
-                if "knife" in scratch_answer:
-                    print(f"You scratched the sticker off and it"
-                    f" reavealed the number {Fore.LIGHTYELLOW_EX}1{Fore.WHITE}")
-                elif "nail" in scratch_answer:
-                    print("That wont work...")
-                else:
-                    print(wrong_input())
-            elif any(x in term_bookshelf for x in term_red_scenario):
-                print(INSPECT_BOOK_RED)
-                red_book_inspect = input("Answer: ").lower()
-                if any(x in red_book_inspect for x in north_inspect_scenario):
-                    print(OPEN_RED_BOOK)
-                elif red_book_inspect in ("n", "no"):
-                    print("You are facing the bookshelf again, What do you do?")
-                else:
-                    print(wrong_input())
+            purple_book_answer = input("Answer: ").lower()
+            if "scratch" in purple_book_answer:
+                while True:
+                    print("With what do you scratch it with?")
+                    scratch_answer = input("Asnwer: ").lower()
+                    if "knife" in scratch_answer:
+                        print(f"You scratched the sticker off and it"
+                        f" reavealed the number {Fore.LIGHTYELLOW_EX}1{Fore.WHITE}")
+                        break
+                    elif "nail" in scratch_answer:
+                        print("That wont work...")
+                        break
+                    else:
+                        type_delay(wrong_input())
+                        break
             else:
-                print(wrong_input())
+                type_delay(wrong_input())
+        elif any(x in term_bookshelf for x in term_red_scenario):
+            type_delay(INSPECT_BOOK_RED)
+            red_book_inspect = input("Answer: ").lower()
+            while True:
+                if red_book_inspect in ("y", "yes"):
+                    type_delay(OPEN_RED_BOOK)
+                    Event().wait(2)
+                    east_face(look_answer)
+                elif red_book_inspect in ("n", "no"):
+                    print("You get the feeling that you just saved 2 hours")
+                    east_face(look_answer)
+                else:
+                    type_delay(wrong_input())
+                    east_face(look_answer)
+        else:
+            type_delay(wrong_input())
+            east_face(look_answer)
     elif any(x in east_answer for x in move_scenario):
         type_delay("You are not strong enough to do that...")
+        east_face(look_answer)
     elif any(x in east_answer for x in back_scenario):
         landing_start()
     elif any(x in east_answer for x in north_scenario):
@@ -262,7 +293,7 @@ def east_face(look_answer):
     elif any(x in east_answer for x in west_scenario):
         west_face(look_answer)
     else:
-        print(wrong_input())
+        type_delay(wrong_input())
 
 def south_face(look_answer):
     """
@@ -270,26 +301,33 @@ def south_face(look_answer):
     """
     clear()
     print(ROOM_DESIGN_SOUTH)
-    type_delay(f"{Fore.RED}{look_answer}:{Fore.WHITE}" +
+    type_delay(f"{Fore.RED}{look_answer}: {Fore.WHITE}" +
     "You See a table with two chairs on each side. What do you do?\n")
     south_scenario_answer = input("Answer: ").lower()
-    south_scenario_inpsect = ["approach", "inspect"]
-    if any(x in south_scenario_answer for x in south_scenario_inpsect):
-        print(INSPECT_CHAIRS)
-    elif "sit" in south_scenario_answer:
-        type_delay(SIT_CHAIRS)
-    elif "stand" in south_scenario_answer:
-        type_delay(STAND_CHAIR)
-    elif any(x in south_scenario_answer for x in back_scenario):
-        landing_start()
-    elif any(x in south_scenario_answer for x in north_scenario):
-        north_face(look_answer)
-    elif any(x in south_scenario_answer for x in east_scenario):
-        east_face(look_answer)
-    elif any(x in south_scenario_answer for x in west_scenario):
-        west_face(look_answer)
-    else:
-        print(wrong_input())
+    while True:
+        if any(x in south_scenario_answer for x in south_scenario_inpsect):
+            print(INSPECT_CHAIRS)
+            Event().wait(3)
+            south_face(look_answer)
+        elif "sit" in south_scenario_answer:
+            type_delay(SIT_CHAIRS)
+            Event().wait(3)
+            south_face(look_answer)
+        elif "stand" in south_scenario_answer:
+            type_delay(STAND_CHAIR)
+            Event().wait(3)
+            south_face(look_answer)
+        elif any(x in south_scenario_answer for x in back_scenario):
+            landing_start()
+        elif any(x in south_scenario_answer for x in north_scenario):
+            north_face(look_answer)
+        elif any(x in south_scenario_answer for x in east_scenario):
+            east_face(look_answer)
+        elif any(x in south_scenario_answer for x in west_scenario):
+            west_face(look_answer)
+        else:
+            type_delay(wrong_input())
+            south_face(look_answer)
 
 def west_face(look_answer):
     """
@@ -297,23 +335,27 @@ def west_face(look_answer):
     """
     clear()
     print(ROOM_DESIGN_WEST)
-    type_delay(f"{Fore.YELLOW}{look_answer}:{Fore.WHITE}" +
+    type_delay(f"{Fore.YELLOW}{look_answer}: {Fore.WHITE}" +
     "You turn to your left, you see a desk. What do you do?\n")
     desk_answer = input("Answer: ").lower()
-    # Scenarios for Desk
-    desk_scenario = ["approach", "inspect"]
     if any(x in desk_answer for x in desk_scenario):
-        print(DESK_INPSECT)
-        desk_scenario_answer = input("Answer: ").lower
+        type_delay(DESK_INPSECT)
+        desk_scenario_answer = input("Answer: ").lower()
         if "take" in desk_scenario_answer:
-            print("You take the Knife")
+            type_delay("You take the Knife")
+            Event().wait(1)
+            west_face(look_answer)
         elif "open" in desk_scenario_answer:
             print("Which one do you open?\n")
-            desk_open_scenario = input("Answer: ").lower
+            desk_open_scenario = input("Answer: ").lower()
             if "left" in desk_open_scenario:
-                print(LEFT_DRAWER)
+                type_delay(LEFT_DRAWER)
+                Event().wait(3)
+                west_face(look_answer)
             elif "right" in desk_open_scenario:
-                print(LEFT_DRAWER)
+                type_delay(LEFT_DRAWER)
+                Event().wait(3)
+                west_face(look_answer)
     elif any(x in desk_answer for x in back_scenario):
         landing_start()
     elif any(x in desk_answer for x in north_scenario):
@@ -349,7 +391,7 @@ def exit_app():
         elif answer == "no" or "NO" or "N" or "n":
             break
         else:
-            print(wrong_input())
+            type_delay(wrong_input())
 
 def type_delay(text):
     """
@@ -366,7 +408,7 @@ def wrong_input():
     """
     When the user enters an invalid
     """
-    print("Invalid command, please make sure of spelling and try again")
+    print(f"{Fore.RED}Invalid command{Fore.WHITE}, please make sure of spelling and try again")
 
 def information_menu():
     """
