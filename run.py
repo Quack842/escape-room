@@ -56,7 +56,6 @@ def main_menu():
     clear()
     print(TITLE)
     print(MAIN_TEXT)
-    print(random.choices(TIPS_1,TIPS_2))
 
     while True:
         answer = input(
@@ -184,10 +183,7 @@ def north_face(look_answer):
                     type_delay("You entered the \033[5;35m4\033[0;0m digit code,"
                     " you fiddle with the lock and"
                     " all of a sudden *CLICK*. You unlocked the door!")
-                    clear()
-                    print(ESCAPED_MSG)
-                    input("Press Enter to continue...")
-                    main_menu()
+                    animate_rocket()
                 elif len(north_yes_input) < 4:
                     print(f"It is a \033[5;35m4\033[0;0m digit combination lock,"
                     f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
@@ -420,5 +416,27 @@ def information_menu():
     """
     clear()
     print(INFORMATION_TEXT)
+#FINISHED animation
+def animate_rocket():
+    """
+    when the user finshed the game this animation will display
+    """
+    distance_from_top = 20
+    while True:
+        print("\n" * distance_from_top)
+        print("     .    /\             .    /\             .    /\   .    ")
+        print(" .     .  ||        .         ||   .    .         ||     .  ")
+        print("   .   .  ||      .           ||      .     .     ||   .    ")
+        print("     .   /||\          .     /||\       .        /||\    .   ")
+        time.sleep(0.2)
+        os.system('clear')
+        distance_from_top -= 1
+        if distance_from_top < 0:
+            distance_from_top = 20
+
+            clear()
+            print(ESCAPED_MSG)
+            input("Press Enter to continue...")
+            main_menu()
 
 main_menu()
