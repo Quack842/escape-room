@@ -72,7 +72,7 @@ def main_menu():
             f"To start the game, type {Fore.BLUE}start{Fore.WHITE}. "
             f"If you want to know more about the game and how to play this game"
             f"type {Fore.BLUE}Info/Information{Fore.WHITE} "
-            f"If you want to exit the application, just type {Fore.BLUE}kill code{Fore.WHITE}\n" +
+            f"Whenever you want to exit the app, just type {Fore.BLUE}kill code{Fore.WHITE}\n" +
             "Answer: "
         ).lower()
         if any(x in answer for x in start_scenario) or answer == "s":
@@ -127,9 +127,9 @@ def landing_start():
     """
     When the user want to come back to this scene
     """
-    type_delay("Well hello " + USERNAME)
+    type_delay("Well hello, " + USERNAME)
     while True:
-        type_delay(STORY_START + USERNAME)
+        type_delay(STORY_START + USERNAME + "?\n")
         answer = input("Answer: ").lower()
         if any(x in answer for x in first_scenario):
             while True:
@@ -212,23 +212,26 @@ def north_face(look_answer):
             type_delay(STORY_NORTH_INSPECT)
             north_inspect_answer = input("Answer: ").lower()
             if any(x in north_inspect_answer for x in north_inspect_scenario):
-                north_yes_input = input("Please enter the 4 digit code ('back' to return): ")
                 while True:
+                    north_yes_input = input("Please enter the 4 digit code ('back' to return): ")
                     if north_yes_input == str(3012):
                         type_delay("You entered the \033[5;35m4\033[0;0m digit code,"
                         " you fiddle with the lock and"
                         " all of a sudden *CLICK*. You unlocked the door!")
+                        Event().wait(1)
                         animate_rocket()
                     elif len(north_yes_input) < 4:
                         print(f"It is a \033[5;35m4\033[0;0m digit combination lock,"
-                        f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
+                        f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}\n."
                         f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
-                        " you need to enter a 4 digit code.")
+                        " you need to enter a 4 digit code.\n")
                     elif len(north_yes_input) > 4:
                         print(f"It is a 4 digit combination lock,"
                         f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
                         f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
-                        " to enter a 4 digit code.")
+                        " to enter a 4 digit code.\n")
+                    elif not north_yes_input.isnumeric():
+                        print(f"{Fore.RED}Only numbers please{Fore.WHITE}\n")
                     elif any(x in north_yes_input for x in back_scenario):
                         clear()
                         type_delay("Going Back.")
@@ -236,10 +239,8 @@ def north_face(look_answer):
                         type_delay(".")
                         Event().wait(1)
                         break
-                    elif not north_yes_input.isnumeric():
-                        print("Only numbers please")
                     elif north_yes_input != "3012":
-                        print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again")
+                        print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again\n")
                     elif "kill code" in north_yes_input:
                         exit_app()
                     elif "tip" in north_yes_input:
@@ -299,10 +300,10 @@ def east_face(look_answer):
         east_answer = input("Answer: ").lower()
         if any(x in east_answer for x in bookshelf_scenario):
             while True:
-                type_delay(STORY_EAST_INSPECT + USERNAME)
+                type_delay(STORY_EAST_INSPECT)
                 term_bookshelf= input("Answer: ").lower()
                 if any(x in term_bookshelf for x in term_purple_scenario):
-                    type_delay(INSPECT_BOOK_PURPLE + USERNAME)
+                    type_delay(INSPECT_BOOK_PURPLE + USERNAME + "?\n")
                     purple_book_answer = input("Answer: ").lower()
                     if "scratch" in purple_book_answer:
                         while True:
@@ -453,7 +454,7 @@ def west_face(look_answer):
         f"You turn to your left, you see a desk. What do you do {USERNAME}?\n")
         desk_answer = input("Answer: ").lower()
         if any(x in desk_answer for x in desk_scenario):
-            type_delay(DESK_INPSECT + USERNAME)
+            type_delay(DESK_INPSECT + USERNAME + "?\n")
             desk_scenario_answer = input("Answer: ").lower()
             if "take" in desk_scenario_answer:
                 type_delay("You take the Knife.")
@@ -552,7 +553,7 @@ def information_menu():
     The details on how to play the game will be displayed.
     """
     clear()
-    print(INFORMATION_TEXT + USERNAME)
+    print(INFORMATION_TEXT)
 #FINISHED animation
 def animate_rocket():
     """
