@@ -128,8 +128,7 @@ ROOM_DESIGN_WEST = f"""
 
 MAIN_TEXT = """
 Welcome to the Escape Room. This game will test your problem solving 
-skills and creativity. You will be dropped in a room and you will have to 
-think of different commands to get yourself out of the room.
+skills and creativity. Use your imagination to escape!
 """
 
 INFORMATION_TEXT = """

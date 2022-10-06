@@ -30,7 +30,7 @@ south_scenario = ["south", "behind", "backwards"]
 # When the user look to the West
 west_scenario = ["west", "left"]
 # When the user quit or exit the game
-exit_scenario = ["exit", "quit", "give up", "terminate"]
+exit_scenario = ["exit", "quit", "give up", "terminate", "kill code"]
 # When the user wants to go back
 back_scenario = ["back", "rewind", "step back"]
 # When the player enter any of the following key words for open north door
@@ -69,10 +69,10 @@ def main_menu():
 
     while True:
         answer = input(
-            f"To start The game, type {Fore.BLUE}start{Fore.WHITE}. "
+            f"To start the game, type {Fore.BLUE}start{Fore.WHITE}. "
             f"If you want to know more about the game and how to play this game"
             f"type {Fore.BLUE}Info/Information{Fore.WHITE} "
-            f"If you want to exit the application, just type {Fore.BLUE}exit{Fore.WHITE}\n" +
+            f"If you want to exit the application, just type {Fore.BLUE}kill code{Fore.WHITE}\n" +
             "Answer: "
         ).lower()
         if any(x in answer for x in start_scenario) or answer == "s":
@@ -89,7 +89,7 @@ def get_username():
     This function will retreive the username that the user will enter.
     """
     while True:
-        name = input("What should I call you?\n" + "Answer: ").upper().strip()
+        name = input("What should I call you?\n" + "Answer: ").strip()
         if len(name) < 2:
             clear()
             print(f"{Fore.RED}The Length of the username is too short,"
@@ -127,9 +127,9 @@ def landing_start():
     """
     When the user want to come back to this scene
     """
-    type_delay(USERNAME)
+    type_delay("Well hello " + USERNAME)
     while True:
-        type_delay(STORY_START)
+        type_delay(STORY_START + USERNAME)
         answer = input("Answer: ").lower()
         if any(x in answer for x in first_scenario):
             while True:
@@ -204,7 +204,7 @@ def north_face(look_answer):
     clear()
     print(ROOM_DESIGN_NORTH)
     type_delay(f"{Fore.BLUE}{look_answer}:{Fore.WHITE}" +
-    " You see a door… What do you do?\n")
+    f" You see a door… What do you do {USERNAME}?\n")
     north_answer = input("Answer: ").lower()
     # When the user inspect the door
     if any(x in north_answer for x in door_scenario):
@@ -299,10 +299,10 @@ def east_face(look_answer):
         east_answer = input("Answer: ").lower()
         if any(x in east_answer for x in bookshelf_scenario):
             while True:
-                type_delay(STORY_EAST_INSPECT)
+                type_delay(STORY_EAST_INSPECT + USERNAME)
                 term_bookshelf= input("Answer: ").lower()
                 if any(x in term_bookshelf for x in term_purple_scenario):
-                    type_delay(INSPECT_BOOK_PURPLE)
+                    type_delay(INSPECT_BOOK_PURPLE + USERNAME)
                     purple_book_answer = input("Answer: ").lower()
                     if "scratch" in purple_book_answer:
                         while True:
@@ -408,7 +408,7 @@ def south_face(look_answer):
     print(ROOM_DESIGN_SOUTH)
     while True:
         type_delay(f"{Fore.RED}{look_answer}: {Fore.WHITE}" +
-        "You See a table with two chairs on each side. What do you do?\n")
+        f"You See a table with two chairs on each side. What do you do {USERNAME}?\n")
         south_scenario_answer = input("Answer: ").lower()
         if any(x in south_scenario_answer for x in south_scenario_inpsect):
             type_delay(INSPECT_CHAIRS)
@@ -450,10 +450,10 @@ def west_face(look_answer):
     print(ROOM_DESIGN_WEST)
     while True:
         type_delay(f"{Fore.YELLOW}{look_answer}: {Fore.WHITE}" +
-        "You turn to your left, you see a desk. What do you do?\n")
+        f"You turn to your left, you see a desk. What do you do {USERNAME}?\n")
         desk_answer = input("Answer: ").lower()
         if any(x in desk_answer for x in desk_scenario):
-            type_delay(DESK_INPSECT)
+            type_delay(DESK_INPSECT + USERNAME)
             desk_scenario_answer = input("Answer: ").lower()
             if "take" in desk_scenario_answer:
                 type_delay("You take the Knife.")
@@ -552,7 +552,7 @@ def information_menu():
     The details on how to play the game will be displayed.
     """
     clear()
-    print(INFORMATION_TEXT)
+    print(INFORMATION_TEXT + USERNAME)
 #FINISHED animation
 def animate_rocket():
     """
