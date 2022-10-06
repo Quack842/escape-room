@@ -118,7 +118,7 @@ I don't really have a flowchart, but when I originally thought of the idea to cr
 
 # Technologies Used
 
-[Back To Top](#my-perfect-holiday--safari) <br>
+[Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents)
 
 ## Languages Used
@@ -141,7 +141,7 @@ This website was used to generate the cool text that you see in the game. The tw
 This was used to deploy the application. <br>
 # Testing
 
-[Back To Top](#my-perfect-holiday--safari) <br>
+[Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents) <br>
 
 ## Validating The Code
@@ -171,103 +171,28 @@ Padlock Code        |Validates if code is incorrect      |![invalid](assets/imag
 
 # Deployment
 
-[Back To Top](#my-perfect-holiday--safari) <br>
+[Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents) <br>
 
-[GitPod](https://gitpod.io/) Was used for the development of the website. <br>
-[GitHub](https://github.com/) was used to Host and Deploy the the website.
-The following steps was taking to Deploy the website via Github:
+The application has been deployed using [Heroku](https://heroku.com) by following these steps:
 
-1. Creating the Repository
-    * Log into Github.
-    * Locate the template that was provided by Code Institute. [Template](https://github.com/Code-Institute-Org/gitpod-full-template)
-    * Click on the "Use This Template" on the top of the Repository.
-    * Enter the name that was chosen for the website.
-    * Clicked on the "Create repository from Template" button.
-2. Deploying the Website.
-    * In the GitHub repository, click on the "Settings" Tab.
-    * Navigate to the "Pages" subsection from the left hand pannel.
-    * Select the "main" branch and select the "Save" button.
-    * Now a link has been generated for the Live Website.
-<br>
+1. Push all the changes to GitHub.
+2. Go to the Heroku's website.
+3. Log into Heroku 
+4. From the Heroku dashboard, click on "Create new app".
+5. Enter the "App name" and "Choose a region" before clicking on "Create app".
+6. Go to "Config Vars" under the "Settings" tab.
+7. Add the Config Var, KEY: PORT and VALUE: 8000.
+8. Go to "Buildpacks" section and click "Add buildpack".
+9. Select "python" and click "Save changes", and doing the same for "node.js"
+10. Go to "Deployment method", under the "Deploy" tab select "GitHub" and click on "Connect to GitHub".
+13. Go to "Connect to GitHub" section and "Search" the repository to be deployed.
+14. Click "Connect" next the repository name.
+15. Choose "Manual deploys" to deploy your application manually.
 
 # Credits
 
-[Back To Top](#my-perfect-holiday--safari) <br>
+[Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents) <br>
 
-When creating the README File, multiple examples was used from other students to help with creating this README file.
-
-### Suggested by my mentor
-* [iKlevvv](https://github.com/iKelvvv/MS1)
-* [Josswe26](https://github.com/josswe26/pura-vida-spa)
-
-### Code Institute
-* [Code Institute README](https://github.com/Code-Institute-Solutions/readme-template) 
-
-### Fellow Slack Students
-* [Dragon-fire-fly](https://github.com/dragon-fire-fly/venom/blob/main/README.md#testing)
-
-## Codepen
-CodePen is a social development environment for front-end designers and developers. Fellow Front-End Developers can use this website to help with certain code and features. <br>
-The following code were used as inspiration with some of the features on the website: <br>
-
-[Card Flip Feature](https://codepen.io/edeesims/pen/wvpYWW) <br>
-[Back to top button on home page](https://codepen.io/JavaScriptJunkie/pen/pPRooV)
-
-[Unsplash](https://unsplash.com/) <br>
-All of the Images used on the website is from the website, Unsplash. <br>
-<br>
-
-# End Product
-
-[Back To Top](#my-perfect-holiday--safari) <br>
-[Back To Table Of Contents](#table-of-contents) <br>
-
-<details>
-<summary>
-Navigation Bar
-</summary>
- The Navigation bar is featured across all three pages and allows the user to navigate around the website using the Home, Activities and Contact Us links provided. The Navigation bar is identical on all three pages and this will allow for the user to navigate around with ease. The current page that is selected will be highlighted so the user will know on what page they currently are on. <br>
-
- ![Navigation Bar](assets/images/navbar-image.png)
-</details>
-<details>
-<summary>
-Landing Page
-</summary>
- The landing page includes a hero image that is the first image the user will see when the website opens. On the image is a short text that briefly tells the user what to expect about the website. AS the user scrolls down, they will see more information about the Travel Agency and what to expect about the website. <br>
-
- ![Main Hero Sample](assets/images/main-hero-image.png)
-</details>
-
-<details>
-<summary>
-Activities Page
-</summary>
-On the Activities page, the user will be able to see what kind of activities are available to help build the perfect holiday. There are about 5 flip cards and each one will have a picture on the front of the card and when the user hovers over the card, it will flip around and reveal items related to the type of activities.
-  <br>
-
- ![Activities Page](assets/images/activities-layout.png)
-</details>
-
-<details>
-<summary>
-Contact Us Page
-</summary>
-When the user go to the Contact Us Page, they will have two types of contact options. On the Left side of the page is a contact us Form that the user will be able to fill in and it will send the message to the Travel Agency. On The Right hand side of the website, there will be contact details that the user can use to contact the Travel Agency self. The map on the Contact Details shows the exact location and the map is interactive, and allows the user to zoom in, out and move it all about.
-  <br>
-<img src="assets/images/contact-us-form.png" width="325px"> <img src="assets/images/contact-us-details.png" width="300px">
-</details>
-
-<details>
-<summary>
-Footer
-</summary>
-The Footer has a simple design that shows the social tags. Each tag links to the relative social media page and all links will open in a new tab and keep the current website open as well, this will make it easy for the user to navigate and the user would not have to worry about navigating back to the website. There is also an on hover effect on the social media links, it will change color, rotate and grow bigger.
-  <br>
-
-  ![Footer](assets/images/footer.png)
-</details>
-
-
+The idea to give the player as much freedom as possiple came from the old game Larry.
