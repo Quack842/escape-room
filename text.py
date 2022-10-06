@@ -3,6 +3,7 @@ Start of the Project and File
 """
 import colorama
 from colorama import Fore
+# from run import USERNAME
 colorama.init()
 
 TITLE = f"""
@@ -182,6 +183,10 @@ Something sharp will work to scratch off this weird sticker.\n
 What do you do?
 """
 
+INVALID_COMMAND = f"""
+{Fore.RED}Invalid Command.{Fore.WHITE} Please make sure of spelling and enter a valid command...
+"""
+
 SUICIDE_TEXT = """
               _ _  _____ _______ ____  _____  _ _ 
             | | |/ ____|__   __/ __ \|  __ \| | |
@@ -224,7 +229,8 @@ Please Get off the table.\n
 """
 
 DESK_INPSECT = """
-You approach the desk, as you get closer, you first notice the knife on the desk. Afterwards you see that the desk also have 2 drawers. 
+You approach the desk, as you get closer, you first notice the knife on the desk.
+This might come in hand later. Afterwards you see that the desk also have 2 drawers. 
 What do you do?\n
 """
 
@@ -240,12 +246,16 @@ You open the book… You start reading the first line, the book was so interesti
 You have a feeling that the other red books will have the same results.
 """
 
+SEARCH_COMMAND = """
+After looking around, you notice something sharp to the west side.
+"""
+
 ESCAPED_MSG = f"""
 {Fore.BLUE} __     ______  _    _ _ _____  ______   ______ _____  ______ ______ _ _ 
  \ \   / / __ \| |  | ( )  __ \|  ____| |  ____|  __ \|  ____|  ____| | |
-  \ \_/ / |  | | |  | |/| |__) | |__    | |__  | |__) | |__  | |__  | | |{Fore.LIGHTBLACK_EX}
-   \   /| |  | | |  | | |  _  /|  __|   |  __| |  _  /|  __| |  __| | | |{Fore.LIGHTBLUE_EX}
-    | | | |__| | |__| | | | \ \| |____  | |    | | \ \| |____| |____|_|_|{Fore.LIGHTBLACK_EX}
+  \ \_/ / |  | | |  | |/| |__) | |__    | |__  | |__) | |__  | |__  | | |{Fore.GREEN}
+   \   /| |  | | |  | | |  _  /|  __|   |  __| |  _  /|  __| |  __| | | |{Fore.RED}
+    | | | |__| | |__| | | | \ \| |____  | |    | | \ \| |____| |____|_|_|{Fore.YELLOW}
     |_|  \____/ \____/  |_|  \_\______| |_|    |_|  \_\______|______(_|_){Fore.WHITE}
 __________________________________________________________________________
 
@@ -340,5 +350,44 @@ TIPS_10 = """
 Life Tip:
 Don't judge each day by the harvest you reap but by the seeds that you plant. 
 
-- Robert Louis Stevenson
+- Robert Louis Stevenson\n
+Did you mean hint?
+"""
+
+HINT_1 = """
+Hint - 1:
+When your stuck, just type "back", this will take you back to where you can face any direction.
+"""
+
+HINT_2 = """
+Hint - 2:
+Search around the room, if your stuck, try using commands that has one of the following words in it:
+- look
+- inspect
+- approach
+"""
+
+HINT_3 = """
+Hint - 3:
+If you are stuck and the other hints doesn't work, you can always kill the game by typing "kill code".
+"""
+
+HINT_4 = """
+Hint - 4:
+There might be somthing at the bookshelf.
+"""
+
+HINT_5 = """
+Hint - 5:
+It helps to specify witch direction you want to loook at, sometimes.
+"""
+
+HINT_6 = """
+Hint - 6:
+There is no limit to the lock comibation queses, so you could always just guess the code.
+"""
+
+HINT_7 = """
+Hint - 7:
+You can always get the code to the combination lock in the source code... but thats cheating
 """
