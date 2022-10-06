@@ -156,6 +156,66 @@ To validate the Python code, I used [Python Checker](https://www.pythonchecker.c
 
 ## Manual Testing
 
+<table>
+    <thead>
+        <tr>
+            <th>Feature<th>
+            <th>Outcome<th>
+            <th>Example<th>
+            <th>Pass/Fail<th>
+        <tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan=4>Name Input<td>
+            <td>Validates If Value is too short/empty<td>
+            <td><img src="assets/images/username-short-invalid.png" alt="too short username"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Validates If Value is too long<td>
+            <td><img src="assets/images/username-long-invalid.png" alt="too long username"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Validates If Value is a number<td>
+            <td><img src="assets/images/username-numbers-invalid.png" alt="string only"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Validates If Value is a symbol<td>
+            <td><img src="assets/images/username-symblos-invalid.png" alt="invalid username"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Unreconized Commands<td>
+            <td>Validates If Value the command is unreconized<td>
+            <td><img src="assets/images/unrecondized-command.png" alt="Unreconized"><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td rowspan=4>Padlock Code<td>
+            <td>Validates if code is too short<td>
+            <td><img src="assets/images/invalid-code-short.png" alt="too short"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Validates if code is too long<td>
+            <td><img src="assets/images/invalid-code-long.png" alt="too long"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Validates if code is not a number<td>
+            <td><img src="assets/images/invalid-code-text.png" alt="string only"/><td>
+            <td>Pass<td>
+        <tr>
+        <tr>
+            <td>Validates if code is incorrect<td>
+            <td><img src="assets/images/invalid-code.png" alt="invalid"/><td>
+            <td>Pass<td>
+        <tr>
+    <tbody>
+</table>
 # Deployment
 
 [Back To Top](#my-perfect-holiday--safari) <br>
