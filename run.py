@@ -227,12 +227,12 @@ def north_face(look_answer):
                             Event().wait(1)
                             animate_rocket()
                         elif len(north_yes_input) < 4:
-                            print(f"It is a \033[5;35m4\033[0;0m digit combination lock,"
+                            print(f"{Fore.RED}Invalid:{Fore.WHITE} It is a \033[5;35m4\033[0;0m digit combination lock,"
                             f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}\n."
                             f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
                             " you need to enter a 4 digit code.\n")
                         elif len(north_yes_input) > 4:
-                            print(f"It is a 4 digit combination lock,"
+                            print(f"{Fore.RED}Invalid:{Fore.WHITE} It is a 4 digit combination lock,"
                             f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
                             f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
                             " to enter a 4 digit code.\n")
