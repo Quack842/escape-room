@@ -2,7 +2,6 @@
 Start of the Project and File
 """
 import os
-from symbol import term
 import sys
 import random
 from threading import Event
