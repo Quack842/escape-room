@@ -156,66 +156,19 @@ To validate the Python code, I used [Python Checker](https://www.pythonchecker.c
 
 ## Manual Testing
 
-<table>
-    <thead>
-        <tr>
-            <th>Feature<th>
-            <th>Outcome<th>
-            <th>Example<th>
-            <th>Pass/Fail<th>
-        <tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=4>Name Input<td>
-            <td>Validates If Value is too short/empty<td>
-            <td><img src="assets/images/username-short-invalid.png" alt="too short username"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Validates If Value is too long<td>
-            <td><img src="assets/images/username-long-invalid.png" alt="too long username"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Validates If Value is a number<td>
-            <td><img src="assets/images/username-numbers-invalid.png" alt="string only"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Validates If Value is a symbol<td>
-            <td><img src="assets/images/username-symblos-invalid.png" alt="invalid username"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Unreconized Commands<td>
-            <td>Validates If Value the command is unreconized<td>
-            <td><img src="assets/images/unrecondized-command.png" alt="Unreconized"><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td rowspan=4>Padlock Code<td>
-            <td>Validates if code is too short<td>
-            <td><img src="assets/images/invalid-code-short.png" alt="too short"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Validates if code is too long<td>
-            <td><img src="assets/images/invalid-code-long.png" alt="too long"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Validates if code is not a number<td>
-            <td><img src="assets/images/invalid-code-text.png" alt="string only"/><td>
-            <td>Pass<td>
-        <tr>
-        <tr>
-            <td>Validates if code is incorrect<td>
-            <td><img src="assets/images/invalid-code.png" alt="invalid"/><td>
-            <td>Pass<td>
-        <tr>
-    <tbody>
-</table>
+Featrue             | Outcome                            | Example                                                     | Pass/Fail
+:------------------:|:----------------------------------:|:-----------------------------------------------------------:|:----------:
+Unreconized Commands|Validates command is unreconized    |![Unreconized](assets/images/unrecondized-command.png)       |Pass
+Name Input          |Validates If vl is too short/empty  |![too short username](assets/images/unrecondized-command.png)|Pass
+                    |Validates If vl is too long         |![too long username](assets/images/username-long-invalid.png)|Pass
+                    |Validates If vl is a number         |![string only](assets/images/username-numbers-invalid.png)   |Pass
+                    |Validates If vl is a symbol         |![invalid usrn](assets/images/username-symblos-invalid.png)  |Pass
+Padlock Code        |Validates if code is too short      |![too short](assets/images/invalid-code-short.png)           |Pass
+                    |Validates if code is too long       |![too long](assets/images/invalid-code-long.png)             |Pass
+                    |Validates if code is not a number   |![string only](assets/images/invalid-code-text.png)          |Pass
+                    |Validates if code is incorrect      |![invalid](assets/images/invalid-code.png)                   |Pass
+                    
+
 # Deployment
 
 [Back To Top](#my-perfect-holiday--safari) <br>
