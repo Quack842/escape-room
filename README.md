@@ -156,17 +156,17 @@ To validate the Python code, I used [Python Checker](https://www.pythonchecker.c
 
 ## Manual Testing
 
-Featrue             | Outcome                            | Example                                                     | Pass/Fail
+Featrue             | Outcome                            | Example                                                     | Pass/Fail  |
 :------------------:|:----------------------------------:|:-----------------------------------------------------------:|:----------:
-Unreconized Commands|Validates command is unreconized    |![Unreconized](assets/images/unrecondized-command.png)       |Pass
-Name Input          |Validates If vl is too short/empty  |![too short username](assets/images/unrecondized-command.png)|Pass
-                    |Validates If vl is too long         |![too long username](assets/images/username-long-invalid.png)|Pass
-                    |Validates If vl is a number         |![string only](assets/images/username-numbers-invalid.png)   |Pass
-                    |Validates If vl is a symbol         |![invalid usrn](assets/images/username-symblos-invalid.png)  |Pass
-Padlock Code        |Validates if code is too short      |![too short](assets/images/invalid-code-short.png)           |Pass
-                    |Validates if code is too long       |![too long](assets/images/invalid-code-long.png)             |Pass
-                    |Validates if code is not a number   |![string only](assets/images/invalid-code-text.png)          |Pass
-                    |Validates if code is incorrect      |![invalid](assets/images/invalid-code.png)                   |Pass
+Unreconized Commands|Validates command is unreconized    |![Unreconized](assets/images/unrecondized-command.png)       |Pass        |
+Name Input          |Validates If vl is too short/empty  |![too short username](assets/images/unrecondized-command.png)|Pass        |
+Name Input          |Validates If vl is too long         |![too long username](assets/images/username-long-invalid.png)|Pass        |
+Name Input          |Validates If vl is a number         |![string only](assets/images/username-numbers-invalid.png)   |Pass        |
+Name Input          |Validates If vl is a symbol         |![invalid usrn](assets/images/username-symblos-invalid.png)  |Pass        |
+Padlock Code        |Validates if code is too short      |![too short](assets/images/invalid-code-short.png)           |Pass        |
+Padlock Code        |Validates if code is too long       |![too long](assets/images/invalid-code-long.png)             |Pass        |
+Padlock Code        |Validates if code is not a number   |![string only](assets/images/invalid-code-text.png)          |Pass        |   
+Padlock Code        |Validates if code is incorrect      |![invalid](assets/images/incorrect-code.png)                 |Pass        |
                     
 
 # Deployment
