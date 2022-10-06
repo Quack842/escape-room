@@ -15,6 +15,10 @@ colorama.init()
 USERNAME = ""
 # Starting scenarios
 start_scenario = ["start", "begin", "let's go", "started", "wall", "anywhere"]
+# Faceing right scenario
+face_right = ["right", "look to my right", "look to the right"]
+# Faceing right scenario
+face_left = ["left", "look to my left", "look to the left"]
 # Info scenarios
 info_scenario = ["info", "information"]
 # Default scenarios
@@ -132,14 +136,14 @@ def landing_start():
         type_delay(STORY_START + USERNAME + "?\n")
         answer = input("Answer: ").lower()
         if any(x in answer for x in first_scenario):
+            clear()
+            print(ROOM_DESIGN)
+            type_delay(f"Where do you look?\n"
+            f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
+            f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
+            f"Behind You{Fore.RED}(South){Fore.WHITE} "
+            f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
             while True:
-                clear()
-                print(ROOM_DESIGN)
-                type_delay(f"Where do you look?\n"
-                f"Forward{Fore.BLUE}(NORTH){Fore.WHITE}, "
-                f"To Your Right{Fore.GREEN}(East){Fore.WHITE}, "
-                f"Behind You{Fore.RED}(South){Fore.WHITE} "
-                f"or to Your Left{Fore.YELLOW}(West){Fore.WHITE}\n")
                 look_answer = input("Answer: ").lower()
                 if any(x in look_answer for x in north_scenario) or look_answer == "n":
                     north_face(look_answer)
@@ -159,7 +163,8 @@ def landing_start():
                 elif any(x in look_answer for x in back_scenario):
                     landing_start()
                 elif any(x in look_answer for x in death_scenario):
-                    type_delay(SUICIDE_TEXT)
+                    print(SUICIDE_TEXT)
+                    type_delay("Ireland suicide Helpline: 1800 247 247")
                 elif "up" in look_answer:
                     type_delay("You look up... there is a single light bulb flickering above you. ")
                 elif "down" in look_answer:
@@ -203,88 +208,89 @@ def north_face(look_answer):
     """
     clear()
     print(ROOM_DESIGN_NORTH)
-    type_delay(f"{Fore.BLUE}{look_answer}:{Fore.WHITE}" +
-    f" You see a door… What do you do {USERNAME}?\n")
-    north_answer = input("Answer: ").lower()
-    # When the user inspect the door
-    if any(x in north_answer for x in door_scenario):
-        while True:
-            type_delay(STORY_NORTH_INSPECT)
-            north_inspect_answer = input("Answer: ").lower()
-            if any(x in north_inspect_answer for x in north_inspect_scenario):
-                while True:
-                    north_yes_input = input("Please enter the 4 digit code ('back' to return): ")
-                    if north_yes_input == str(3012):
-                        type_delay("You entered the \033[5;35m4\033[0;0m digit code,"
-                        " you fiddle with the lock and"
-                        " all of a sudden *CLICK*. You unlocked the door!")
-                        Event().wait(1)
-                        animate_rocket()
-                    elif len(north_yes_input) < 4:
-                        print(f"It is a \033[5;35m4\033[0;0m digit combination lock,"
-                        f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}\n."
-                        f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
-                        " you need to enter a 4 digit code.\n")
-                    elif len(north_yes_input) > 4:
-                        print(f"It is a 4 digit combination lock,"
-                        f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
-                        f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
-                        " to enter a 4 digit code.\n")
-                    elif not north_yes_input.isnumeric():
-                        print(f"{Fore.RED}Only numbers please{Fore.WHITE}\n")
-                    elif any(x in north_yes_input for x in back_scenario):
-                        clear()
-                        type_delay("Going Back.")
-                        type_delay(".")
-                        type_delay(".")
-                        Event().wait(1)
-                        break
-                    elif north_yes_input != "3012":
-                        print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again\n")
-                    elif "kill code" in north_yes_input:
-                        exit_app()
-                    elif "tip" in north_yes_input:
-                        type_delay(random.choice(tips_list))
-                    elif "hint" in north_yes_input:
-                        type_delay(random.choice(hints_list))
-                    else:
-                        type_delay(INVALID_COMMAND)
-            elif north_inspect_answer in ("n", "no"):
-                break
-            elif "kill code" in north_inspect_answer:
-                exit_app()
-            elif "tip" in north_inspect_answer:
-                type_delay(random.choice(tips_list))
-            elif "hint" in north_inspect_answer:
-                type_delay(random.choice(hints_list))
-            else:
-                type_delay(INVALID_COMMAND)
-    elif north_answer == "nothing":
-        print("You should at least do SOMETHING!")
-    elif "kick" in north_answer:
-        type_delay("Please don't kick my door... Thats rude, now you have to wait"
-        " 3 seconds...")
-        Event().wait(3)
-    elif any(x in north_answer for x in back_scenario):
-        landing_start()
-    elif any(x in north_answer for x in east_scenario):
-        east_face(look_answer)
-    elif any(x in north_answer for x in south_scenario):
-        south_face(look_answer)
-    elif any(x in north_answer for x in west_scenario):
-        west_face(look_answer)
-    elif "left" in north_answer:
-        west_face(look_answer)
-    elif "right" in north_answer:
-        east_face(look_answer)
-    elif "kill code" in north_answer:
-        exit_app()
-    elif "tip" in north_answer:
-        type_delay(random.choice(tips_list))
-    elif "hint" in north_answer:
-        type_delay(random.choice(hints_list))
-    else:
-        type_delay(INVALID_COMMAND)
+    while True:
+        type_delay(f"{Fore.BLUE}{look_answer}:{Fore.WHITE}" +
+        f" You see a door… What do you do {USERNAME}?\n")
+        north_answer = input("Answer: ").lower()
+        # When the user inspect the door
+        if any(x in north_answer for x in door_scenario):
+            while True:
+                type_delay(STORY_NORTH_INSPECT)
+                north_inspect_answer = input("Answer: ").lower()
+                if any(x in north_inspect_answer for x in north_inspect_scenario):
+                    while True:
+                        north_yes_input = input("Please enter the 4 digit code ('back' to return): ")
+                        if north_yes_input == str(3012):
+                            type_delay("You entered the \033[5;35m4\033[0;0m digit code,"
+                            " you fiddle with the lock and"
+                            " all of a sudden *CLICK*. You unlocked the door!")
+                            Event().wait(1)
+                            animate_rocket()
+                        elif len(north_yes_input) < 4:
+                            print(f"It is a \033[5;35m4\033[0;0m digit combination lock,"
+                            f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}\n."
+                            f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
+                            " you need to enter a 4 digit code.\n")
+                        elif len(north_yes_input) > 4:
+                            print(f"It is a 4 digit combination lock,"
+                            f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
+                            f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
+                            " to enter a 4 digit code.\n")
+                        elif not north_yes_input.isnumeric():
+                            print(f"{Fore.RED}Only numbers please{Fore.WHITE}\n")
+                        elif any(x in north_yes_input for x in back_scenario):
+                            clear()
+                            type_delay("Going Back.")
+                            type_delay(".")
+                            type_delay(".")
+                            Event().wait(1)
+                            break
+                        elif north_yes_input != "3012":
+                            print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again\n")
+                        elif "kill code" in north_yes_input:
+                            exit_app()
+                        elif "tip" in north_yes_input:
+                            type_delay(random.choice(tips_list))
+                        elif "hint" in north_yes_input:
+                            type_delay(random.choice(hints_list))
+                        else:
+                            type_delay(INVALID_COMMAND)
+                elif north_inspect_answer in ("n", "no"):
+                    break
+                elif "kill code" in north_inspect_answer:
+                    exit_app()
+                elif "tip" in north_inspect_answer:
+                    type_delay(random.choice(tips_list))
+                elif "hint" in north_inspect_answer:
+                    type_delay(random.choice(hints_list))
+                else:
+                    type_delay(INVALID_COMMAND)
+        elif north_answer == "nothing":
+            print("You should at least do SOMETHING!")
+        elif "kick" in north_answer:
+            type_delay("Please don't kick my door... Thats rude, now you have to wait"
+            " 3 seconds...\n")
+            Event().wait(3)
+        elif any(x in north_answer for x in face_left):
+            west_face(look_answer)
+        elif any(x in north_answer for x in face_right):
+            east_face(look_answer)
+        elif any(x in north_answer for x in back_scenario):
+            landing_start()
+        elif any(x in north_answer for x in east_scenario):
+            east_face(look_answer)
+        elif any(x in north_answer for x in south_scenario):
+            south_face(look_answer)
+        elif any(x in north_answer for x in west_scenario):
+            west_face(look_answer)
+        elif "kill code" in north_answer:
+            exit_app()
+        elif "tip" in north_answer:
+            type_delay(random.choice(tips_list))
+        elif "hint" in north_answer:
+            type_delay(random.choice(hints_list))
+        else:
+            type_delay(INVALID_COMMAND)
 
 def east_face(look_answer):
     """
@@ -357,6 +363,10 @@ def east_face(look_answer):
                         else:
                             type_delay(INVALID_COMMAND)
                             break
+                elif any(x in term_bookshelf for x in face_left):
+                    north_face(look_answer)
+                elif any(x in term_bookshelf for x in face_right):
+                    south_face(look_answer)
                 elif any(x in term_bookshelf for x in back_scenario):
                     landing_start()
                 elif any(x in term_bookshelf for x in north_scenario):
@@ -365,10 +375,6 @@ def east_face(look_answer):
                     south_face(look_answer)
                 elif any(x in term_bookshelf for x in west_scenario):
                     west_face(look_answer)
-                elif "left" in term_bookshelf:
-                    north_face(look_answer)
-                elif "right" in term_bookshelf:
-                    south_face(look_answer)
                 elif "kill code" in term_bookshelf:
                     exit_app()
                 elif "tip" in term_bookshelf:
@@ -380,6 +386,10 @@ def east_face(look_answer):
         elif any(x in east_answer for x in move_scenario):
             type_delay("You are not strong enough to do that...\n")
             Event().wait(2)
+        elif any(x in east_answer for x in face_left):
+            north_face(look_answer)
+        elif any(x in east_answer for x in face_right):
+            south_face(look_answer)
         elif any(x in east_answer for x in back_scenario):
             landing_start()
         elif any(x in east_answer for x in north_scenario):
@@ -388,10 +398,6 @@ def east_face(look_answer):
             south_face(look_answer)
         elif any(x in east_answer for x in west_scenario):
             west_face(look_answer)
-        elif "left" in east_answer:
-            north_face(look_answer)
-        elif "right" in east_answer:
-            south_face(look_answer)
         elif "kill code" in east_answer:
             exit_app()
         elif "tip" in east_answer:
@@ -423,16 +429,17 @@ def south_face(look_answer):
         elif any(x in south_scenario_answer for x in back_scenario):
             break
         elif any(x in south_scenario_answer for x in death_scenario):
-            type_delay(SUICIDE_TEXT)
+            print(SUICIDE_TEXT)
+            type_delay("Ireland suicide Helpline: 1800 247 247")
+        elif any(x in south_scenario_answer for x in face_left):
+            east_face(look_answer)
+        elif any(x in south_scenario_answer for x in face_right):
+            west_face(look_answer)
         elif any(x in south_scenario_answer for x in north_scenario):
             north_face(look_answer)
         elif any(x in south_scenario_answer for x in east_scenario):
             east_face(look_answer)
         elif any(x in south_scenario_answer for x in west_scenario):
-            west_face(look_answer)
-        elif "left" in south_scenario_answer:
-            east_face(look_answer)
-        elif "right" in south_scenario_answer:
             west_face(look_answer)
         elif "kill code" in south_scenario_answer:
             exit_app()
@@ -489,17 +496,18 @@ def west_face(look_answer):
         elif any(x in desk_answer for x in back_scenario):
             break
         elif any(x in desk_answer for x in death_scenario):
-            type_delay(SUICIDE_TEXT)
+            print(SUICIDE_TEXT)
+            type_delay("Ireland suicide Helpline: 1800 247 247")
+        elif any(x in desk_answer for x in face_left):
+            south_face(look_answer)
+        elif any(x in desk_answer for x in face_right):
+            north_face(look_answer)
         elif any(x in desk_answer for x in north_scenario):
             north_face(look_answer)
         elif any(x in desk_answer for x in south_scenario):
             south_face(look_answer)
         elif any(x in desk_answer for x in east_scenario):
             east_face(look_answer)
-        elif "left" in desk_answer:
-            north_face(look_answer)
-        elif "right" in desk_answer:
-            south_face(look_answer)
         elif "kill code" in desk_answer:
             exit_app()
         elif "tip" in desk_answer:
@@ -560,7 +568,6 @@ def animate_rocket():
     when the user finshed the game this animation will display
     """
     distance_from_top = 20
-    distance_from_top_2 = 30
     while True:
         print("\n" * distance_from_top)
         print(f"     {Fore.BLUE}.{Fore.WHITE}    /\             {Fore.RED}.{Fore.WHITE}    /\             {Fore.BLUE}.{Fore.WHITE}    /\   {Fore.BLUE}.{Fore.WHITE}        {Fore.RED}.{Fore.WHITE}    /\ ")
@@ -568,12 +575,7 @@ def animate_rocket():
         print(f"   {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}  ||      {Fore.GREEN}.{Fore.WHITE}           ||      {Fore.RED}.{Fore.WHITE}     {Fore.BLUE}.{Fore.WHITE}     ||   {Fore.YELLOW}.{Fore.WHITE}      {Fore.RED}.{Fore.WHITE}   {Fore.BLUE}.{Fore.WHITE}  ||")
         print(f"     {Fore.RED}.{Fore.WHITE}   /||\          {Fore.BLUE}.{Fore.WHITE}     /||\       {Fore.RED}.{Fore.WHITE}        /||\    {Fore.YELLOW}.{Fore.WHITE}      {Fore.GREEN}.{Fore.WHITE}   /||\ ")
 
-        print("\n" * distance_from_top_2)
-        print(f"     {Fore.BLUE}.{Fore.WHITE}    /\             {Fore.RED}.{Fore.WHITE}    /\             {Fore.BLUE}.{Fore.WHITE}    /\   {Fore.BLUE}.{Fore.WHITE}        {Fore.RED}.{Fore.WHITE}    /\ ")
-        print(f" {Fore.GREEN}.{Fore.WHITE}     {Fore.YELLOW}.{Fore.WHITE}  ||        {Fore.YELLOW}.{Fore.WHITE}         ||   {Fore.YELLOW}.{Fore.WHITE}    {Fore.GREEN}.{Fore.WHITE}         ||     {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}    {Fore.YELLOW}.{Fore.WHITE}  ||")
-        print(f"   {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}  ||      {Fore.GREEN}.{Fore.WHITE}           ||      {Fore.RED}.{Fore.WHITE}     {Fore.BLUE}.{Fore.WHITE}     ||   {Fore.YELLOW}.{Fore.WHITE}      {Fore.RED}.{Fore.WHITE}   {Fore.BLUE}.{Fore.WHITE}  ||")
-        print(f"     {Fore.RED}.{Fore.WHITE}   /||\          {Fore.BLUE}.{Fore.WHITE}     /||\       {Fore.RED}.{Fore.WHITE}        /||\    {Fore.YELLOW}.{Fore.WHITE}      {Fore.GREEN}.{Fore.WHITE}   /||\ ")
-        time.sleep(0.2)
+        time.sleep(0.1)
         os.system('clear')
         distance_from_top -= 1
         if distance_from_top < 0:
