@@ -70,7 +70,6 @@ def main_menu():
     clear()
     print(TITLE)
     print(MAIN_TEXT)
-
     while True:
         answer = input(
             f"To start the game, type {Fore.BLUE}start{Fore.WHITE}. "
