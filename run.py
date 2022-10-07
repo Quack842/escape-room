@@ -1,9 +1,7 @@
 """
 Start of the Project and File
 """
-from curses.ascii import isdigit
 import os
-from pydoc import isdata
 import sys
 import random
 from threading import Event
@@ -191,11 +189,11 @@ def landing_start():
             type_delay("Ireland suicide Helpline: 1800 247 247\n")
             Event().wait(3)
         # When the user want to exit
-        elif any(x in look_answer for x in exit_scenario):
+        elif any(x in answer for x in exit_scenario):
             exit_app()
-        elif any(x in look_answer for x in tips_command):
+        elif any(x in answer for x in tips_command):
             type_delay(random.choice(tips_list))
-        elif any(x in look_answer for x in hint_command):
+        elif any(x in answer for x in hint_command):
             type_delay(random.choice(hints_list))
         else:
             type_delay(INVALID_COMMAND)
