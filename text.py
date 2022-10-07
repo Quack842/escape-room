@@ -130,7 +130,12 @@ Welcome to the Escape Room. This game will test your problem solving
 skills and creativity. Use your imagination to escape!
 """
 
-INFORMATION_TEXT = """
+START_TEXT = f"""
+To start the game, type {Fore.BLUE}start{Fore.WHITE}. If you want to know more about the game and how to play this game 
+type {Fore.BLUE}Info/Information{Fore.WHITE}. Whenever you want to exit the app, just type {Fore.BLUE}kill code{Fore.WHITE}.
+"""
+
+INFORMATION_TEXT = f"""
   _____ _   _ ______ ____  _____  __  __       _______ _____ ____  _   _ 
  |_   _| \ | |  ____/ __ \|  __ \|  \/  |   /\|__   __|_   _/ __ \| \ | |
    | | |  \| | |__ | |  | | |__) | \  / |  /  \  | |    | || |  | |  \| |
@@ -151,12 +156,36 @@ Answer: Look around the car
 and so on.
 
 Depending on your answer, the story will progress accordingly.
+
+There is also tips and hints available, just type a sentance with the word {Fore.BLUE}"hint"{Fore.WHITE} or {Fore.BLUE}"tip"{Fore.WHITE} in it.
 """
 
 STORY_START = """
 You find yourself in a small room. You feel foggy and you dont know where you are or how you got here. 
 You get the feeling that you need to get out of this room...\n
 What do you do """
+
+WHERE_LOOK = f"""
+Where do you look?
+Forward{Fore.BLUE}(NORTH){Fore.WHITE}, To Your Right{Fore.GREEN}(East){Fore.WHITE}, Behind You{Fore.RED}(South){Fore.WHITE} or to Your Left{Fore.YELLOW}(West){Fore.WHITE}
+"""
+
+LOOK_UP = """
+You look up... there is a single light bulb flickering above you... Just don't go into the light.\n
+"""
+
+LOOK_DOWN = """
+You look down... you're looking at your feet... I wonder if you'll use them.\n
+"""
+
+KICK_LOOK = """
+Why would you kick?... What would you kick? What will this achieve?... Do anything else
+"""
+
+KILL_CODE = f"""
+Are you positive you want to quit the app?
+Type {Fore.BLUE}Y{Fore.WHITE} if you want to quit the app or type {Fore.BLUE}N{Fore.WHITE} if you want to stay and try again.\n
+"""
 
 STORY_NORTH_INSPECT = f"""
 You see that there is a \033[5;35mPurple\033[0;0m combination padlock on the door, 
@@ -167,7 +196,7 @@ STORY_EAST_INSPECT = f"""
 You see a bookshelf filled with different colour books, the person who this room belongs 
 to must really love reading! The different colour books are mesmerising to look at. As you are inspecting 
 the bookshelf, you notice that there are a lot of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
-What do you do """
+What do you do\n """
 
 INSPECT_BOOK_PURPLE = f"""
 After inspecting the purple books, you notice that each of the book have a number and alphabet each. 
@@ -273,45 +302,45 @@ GOODBYE = """
 ________________________________________________________
 """
 
-TIPS_1 = """
-Life Tip:
+TIPS_1 = f"""
+{Fore.BLUE}Life Tip:{Fore.WHITE}
 The greatest glory in living lies not in never falling, but in rising every time we fall.
 
 - Nelson Mandela
 """
 
-TIPS_2 = """
-Life Tip:
+TIPS_2 = f"""
+{Fore.GREEN}Life Tip:{Fore.WHITE}
 The way to get started is to quit talking and begin doing. 
 
 - Walt Disney
 """
 
-TIPS_3 = """
-Life Tip:
+TIPS_3 = f"""
+{Fore.YELLOW}Life Tip:{Fore.WHITE}
 Your time is limited, so don't waste it living someone else's life. 
 Don't be trapped by dogma, which is living with the results of other people's thinking. 
 
 - Steve Jobs
 """
 
-TIPS_4 = """
-Life Tip:
+TIPS_4 = f"""
+{Fore.MAGENTA}Life Tip:{Fore.WHITE}
 If life were predictable it would cease to be life, and be without flavor. 
 
 - Eleanor Roosevelt
 """
 
-TIPS_5 = """
-Life Tip:
+TIPS_5 = f"""
+{Fore.LIGHTBLUE_EX}Life Tip:{Fore.WHITE}
 If you look at what you have in life, you'll always have more. 
 If you look at what you don't have in life, you'll never have enough. 
 
 - Oprah Winfrey
 """
 
-TIPS_6 = """
-Life Tip:
+TIPS_6 = f"""
+{Fore.LIGHTGREEN_EX}Life Tip:{Fore.WHITE}
 If you set your goals ridiculously high and it's a failure, 
 you will fail above everyone else's success. 
 
@@ -319,69 +348,73 @@ you will fail above everyone else's success.
 
 """
 
-TIPS_7 = """
-Life Tip:
+TIPS_7 = f"""
+{Fore.LIGHTYELLOW_EX}Life Tip:{Fore.WHITE}
 Life is what happens when you're busy making other plans. 
 
 - John Lennon
 """
 
-TIPS_8 = """
-Life Tip:
+TIPS_8 = f"""
+{Fore.LIGHTMAGENTA_EX}Life Tip:{Fore.WHITE}
 Spread love everywhere you go. Let no one ever come to you without leaving happier. 
 
 - Mother Teresa
 """
 
-TIPS_9 = """
-Life Tip:
+TIPS_9 = f"""
+{Fore.CYAN}Life Tip:{Fore.WHITE}
 Always remember that you are absolutely unique. Just like everyone else. 
 
 - Margaret Mead
 """
 
-TIPS_10 = """
-Life Tip:
+TIPS_10 = f"""
+{Fore.LIGHTCYAN_EX}Life Tip:{Fore.WHITE}
 Don't judge each day by the harvest you reap but by the seeds that you plant. 
 
 - Robert Louis Stevenson\n
-Did you mean hint?
 """
 
-HINT_1 = """
-Hint - 1:
-When your stuck, just type "back", this will take you back to where you can face any direction.
+HINT_1 = f"""
+{Fore.BLUE}Hint - 1:{Fore.WHITE}
+When you are stuck, just type "back", this will take you back to where you can face any direction.
 """
 
-HINT_2 = """
-Hint - 2:
+HINT_2 = f"""
+{Fore.GREEN}Hint - 2:{Fore.WHITE}
 Search around the room, if your stuck, try using commands that has one of the following words in it:
 - look
 - inspect
 - approach
 """
 
-HINT_3 = """
-Hint - 3:
+HINT_3 = f"""
+{Fore.YELLOW}Hint - 3:{Fore.WHITE}
 If you are stuck and the other hints doesn't work, you can always kill the game by typing "kill code".
 """
 
-HINT_4 = """
-Hint - 4:
-There might be somthing at the bookshelf.
+HINT_4 = f"""
+{Fore.MAGENTA}Hint - 4:{Fore.WHITE}
+There might be somthing at the bookshelf, that is to the east of the room.
 """
 
-HINT_5 = """
-Hint - 5:
-It helps to specify witch direction you want to loook at, sometimes.
+HINT_5 = f"""
+{Fore.LIGHTCYAN_EX}Hint - 5:{Fore.WHITE}
+It helps to specify witch direction you want to look at, sometimes.
 """
 
-HINT_6 = """
-Hint - 6:
+HINT_6 = f"""
+{Fore.LIGHTGREEN_EX}Hint - 6:{Fore.WHITE}
 There is no limit to the lock comibation queses, so you could always just guess the code.
 """
 
-HINT_7 = """
-Hint - 7:
+HINT_7 = f"""
+{Fore.LIGHTYELLOW_EX}Hint - 7:{Fore.WHITE}
 You can always get the code to the combination lock in the source code... but thats cheating
+"""
+
+HINT_8 = f"""
+{Fore.LIGHTMAGENTA_EX}Hint - 8:{Fore.WHITE}
+You can alway change the direction you are faceing by typing "turn to the left" or "turn to the right".
 """
