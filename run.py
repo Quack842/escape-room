@@ -232,10 +232,6 @@ def north_face(look_answer):
                             f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
                             f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
                             " to enter a 4 digit code.\n")
-                        elif not north_yes_input.isdigit():
-                            print(f"{Fore.RED}Only numbers please{Fore.WHITE}\n")
-                        elif north_yes_input != "3012":
-                            print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again\n")
                         elif any(x in north_yes_input for x in back_scenario):
                             clear()
                             type_delay("Going Back.")
@@ -243,6 +239,10 @@ def north_face(look_answer):
                             type_delay(".")
                             Event().wait(1)
                             break
+                        elif not north_yes_input.isdigit():
+                            print(f"{Fore.RED}Only numbers please{Fore.WHITE}\n")
+                        elif north_yes_input != "3012":
+                            print(f"{Fore.RED}Incorrect{Fore.WHITE}, try again\n")
                         elif any(x in north_yes_input for x in exit_scenario):
                             exit_app()
                         elif any(x in north_yes_input for x in tips_command):

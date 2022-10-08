@@ -164,7 +164,8 @@ the word {Fore.BLUE}"hint"{Fore.WHITE} or {Fore.BLUE}"tip"{Fore.WHITE} in it.
 
 STORY_START = """
 You find yourself in a small room. You feel foggy and you dont know where you 
-are or how you got here. You get the feeling that you need to get out of this room...\n
+are or how you got here. You get the feeling that you need to get out of this 
+room...\n
 What do you do """
 
 WHERE_LOOK = f"""
