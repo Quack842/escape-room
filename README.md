@@ -144,16 +144,6 @@ This was used to deploy the application. <br>
 [Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents) <br>
 
-## Validating The Code
-To validate the Python code, I used [Python Checker](https://www.pythonchecker.com/), because the original code validator that Code Institute reccomended was not available. 
-<details>
-    <summary>
-        Python Validator
-    </summary>
-
-![Python Validator](assets/images/python-validator.png)
-</details>
-
 ## Manual Testing
 
 Featrue             | Outcome                            | Example                                                     | Pass/Fail  |
