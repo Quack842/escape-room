@@ -131,8 +131,9 @@ skills and creativity. Use your imagination to escape!
 """
 
 START_TEXT = f"""
-To start the game, type {Fore.BLUE}start{Fore.WHITE}. If you want to know more about the game and how to play this game 
-type {Fore.BLUE}Info/Information{Fore.WHITE}. Whenever you want to exit the app, just type {Fore.BLUE}kill code{Fore.WHITE}.
+To start the game, type {Fore.BLUE}start{Fore.WHITE}. If you want to know more 
+about the game and how to play this game type {Fore.BLUE}Info/Information{Fore.WHITE}. 
+Whenever you want to exit the app, just type {Fore.BLUE}kill code{Fore.WHITE}.
 """
 
 INFORMATION_TEXT = f"""
@@ -145,10 +146,10 @@ INFORMATION_TEXT = f"""
 ___________________________________________________________________________
 
 Want to learn how to play the Escape Room game? Well it is very simple and easy. 
-Your job is to escape the room and search for hidden clues and messages with commands.
-You will be given a scenario and you can give a command to further the story. The command 
-can be anything related to the scenario. For Example: The scenario is as follow...
-You find yourself in a car... What do you do?
+Your job is to escape the room and search for hidden clues and messages with 
+commands. You will be given a scenario and you can give a command to further the
+story. The command can be anything related to the scenario. For Example: The 
+scenario is as follow... You find yourself in a car... What do you do?
 
 You can answer anything down the line like:
 Answer: Start the car
@@ -156,13 +157,14 @@ Answer: Look around the car
 and so on.
 
 Depending on your answer, the story will progress accordingly.
-
-There is also tips and hints available, just type a sentance with the word {Fore.BLUE}"hint"{Fore.WHITE} or {Fore.BLUE}"tip"{Fore.WHITE} in it.
+You can change the direction you're faceing by indicating which direction you 
+want to face. There is also tips and hints available, just type a sentance with 
+the word {Fore.BLUE}"hint"{Fore.WHITE} or {Fore.BLUE}"tip"{Fore.WHITE} in it.
 """
 
 STORY_START = """
-You find yourself in a small room. You feel foggy and you dont know where you are or how you got here. 
-You get the feeling that you need to get out of this room...\n
+You find yourself in a small room. You feel foggy and you dont know where you 
+are or how you got here. You get the feeling that you need to get out of this room...\n
 What do you do """
 
 WHERE_LOOK = f"""
@@ -171,7 +173,8 @@ Forward{Fore.BLUE}(NORTH){Fore.WHITE}, To Your Right{Fore.GREEN}(East){Fore.WHIT
 """
 
 LOOK_UP = """
-You look up... there is a single light bulb flickering above you... Just don't go into the light.\n
+You look up... there is a single light bulb flickering above you... 
+Just don't go into the light.\n
 """
 
 LOOK_DOWN = """
@@ -179,32 +182,37 @@ You look down... you're looking at your feet... I wonder if you'll use them.\n
 """
 
 KICK_LOOK = """
-Why would you kick?... What would you kick? What will this achieve?... Do anything else
+Why would you kick?... What would you kick? What will this achieve?...
+Do anything else
 """
 
 KILL_CODE = f"""
 Are you positive you want to quit the app?
-Type {Fore.BLUE}Y{Fore.WHITE} if you want to quit the app or type {Fore.BLUE}N{Fore.WHITE} if you want to stay and try again.\n
+Type {Fore.BLUE}Y{Fore.WHITE} if you want to quit the app or type {Fore.BLUE}N{Fore.WHITE} if 
+you want to stay and try again.\n
 """
 
 STORY_NORTH_INSPECT = f"""
-You see that there is a \033[5;35mPurple\033[0;0m combination padlock on the door, 
-it seems like it needs a \033[5;35m4 digit\033[0;0m code to unlock. Do you want to unlock the door? (Y/N)
+You see that there is a \033[5;35mPurple\033[0;0m combination padlock on the 
+door, it seems like it needs a \033[5;35m4 digit\033[0;0m code to unlock. Do you 
+want to unlock the door?(Y/N)
 """
 
 STORY_EAST_INSPECT = f"""
-You see a bookshelf filled with different colour books, the person who this room belongs 
-to must really love reading! The different colour books are mesmerising to look at. As you are inspecting 
-the bookshelf, you notice that there are a lot of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
+You see a bookshelf filled with different colour books, the person who this room 
+belongs to must really love reading! The different colour books are mesmerising 
+to look at. As you are inspecting the bookshelf, you notice that there are a lot 
+of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
 What do you do\n """
 
 INSPECT_BOOK_PURPLE = f"""
-After inspecting the purple books, you notice that each of the book have a number and alphabet each. 
-The first book you picked up has a letter {Fore.LIGHTCYAN_EX}K{Fore.WHITE} and a number {Fore.LIGHTCYAN_EX}0{Fore.WHITE} on it, 
-the second book has the letter {Fore.LIGHTGREEN_EX}Y{Fore.WHITE} and number {Fore.LIGHTGREEN_EX}2{Fore.WHITE} on it. 
-The third book has the letter {Fore.LIGHTMAGENTA_EX}E{Fore.WHITE} and a number {Fore.LIGHTMAGENTA_EX}3{Fore.WHITE} on it. 
-The forth Book has a letter {Fore.LIGHTYELLOW_EX}Q{Fore.WHITE} and … no number? It seems like a sticker of a ostrobogulous duck was on the area where the number should be. 
-Something sharp will work to scratch off this weird sticker.\n
+After inspecting the purple books, you notice that each of the book have a 
+number and alphabet each. The {Fore.LIGHTCYAN_EX}first{Fore.WHITE} book you picked up has a letter {Fore.LIGHTCYAN_EX}K{Fore.WHITE} and a 
+number {Fore.LIGHTCYAN_EX}0{Fore.WHITE} on it, the {Fore.LIGHTGREEN_EX}second{Fore.WHITE} book has the letter {Fore.LIGHTGREEN_EX}Y{Fore.WHITE} and 
+number {Fore.LIGHTGREEN_EX}2{Fore.WHITE} on it. The {Fore.LIGHTMAGENTA_EX}third{Fore.WHITE} book has the letter {Fore.LIGHTMAGENTA_EX}E{Fore.WHITE} and a number {Fore.LIGHTMAGENTA_EX}3{Fore.WHITE} on it. 
+The {Fore.LIGHTYELLOW_EX}forth{Fore.WHITE} Book has a letter {Fore.LIGHTYELLOW_EX}Q{Fore.WHITE} and … no number? It seems like a sticker of a 
+ostrobogulous duck was on the area where the number should be. Something 
+sharp will work to scratch off this weird sticker.\n
 What do you do """
 
 INVALID_COMMAND = f"""
@@ -234,22 +242,25 @@ seem like it has anything special to it, do you open the book? (Y/N)
 """
 
 INSPECT_CHAIRS = f"""
-You approach the table and chairs, as you get closer, you notice that there is nothing to notice with the table and chairs. 
+You approach the table and chairs, as you get closer, you notice that there is 
+nothing to notice with the table and chairs. 
 Nothing special to see here.\n
 """
 
 SIT_CHAIRS = f"""
-You walk closer to the table, pull back the chair and sit on the chair… As you are sitting, you start to think about your situation. 
-You wonder how on earth you got in this mysterious room and why you have no memory of how you got here. You fall into deep thought, 
-the more you think the faster time feels, but there is no way of knowing how much time has passed since there is no way of 
-keeping track of time in this room. 
-3 hours passed by.\n
+You walk closer to the table, pull back the chair and sit on the chair… As you 
+are sitting, you start to think about your situation. You wonder how on earth you 
+got in this mysterious room and why you have no memory of how you got here. You 
+fall into deep thought, the more you think the faster time feels, but there is 
+no way of knowing how much time has passed since there is no way of keeping 
+track of time in this room. 3 hours passed by...\n
 """
 
 STAND_CHAIR = f"""
-You walk closer with determination, climb on and Yell “HAH! King Of the Hill!!”… As you say it you 
-remember that you are the only one in the room. Personally, at this point Im worried about your insanity. 
-Please Get off the table.\n
+You walk closer with determination, climb on and Yell “HAH! King Of the Hill!!”… 
+As you say it you remember that you are the only one in the room. Personally, 
+at this point Im worried about your insanity. 
+Please Get off of my table.\n
 """
 
 DESK_INPSECT = """
@@ -258,15 +269,17 @@ This might come in hand later. Afterwards you see that the desk also have 2 draw
 What do you do """
 
 LEFT_DRAWER = """
-The drawer is very difficult to open, but you pull harder. You used all your strength to open this one drawer... but it is shut tightly. 
+The drawer is very difficult to open, but you pull harder. You used all your strength 
+to open this one drawer... but it is shut tightly. 
 I dont think it should open.\n
 """
 
 
 OPEN_RED_BOOK = f"""
-You open the book… You start reading the first line, the book was so interesting, that you spend almost 
-2 hours just standing there and reading this book… Fascinating! But… your legs are kinda sore. 
-You have a feeling that the other red books will have the same results.
+You open the book… You start reading the first line, the book was so interesting, that 
+you spend almost 2 hours just standing there and reading this book… Fascinating! 
+But… your legs are kinda sore. You have a feeling that the other red books will have 
+the same results.\n
 """
 
 SEARCH_COMMAND = """

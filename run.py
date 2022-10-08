@@ -295,7 +295,8 @@ def east_face(look_answer):
     print(ROOM_DESIGN_EAST)
     while True:
         type_delay(f"{Fore.GREEN}East: {Fore.WHITE}" +
-        "You turn to your right and see a big bookshelf that is almost as wide as the wall."
+        "You turn to your right and see a big bookshelf that is almost as wide as"
+        "the wall...\n"
         f"What do you do {USERNAME}?\n")
         east_answer = input("Answer: ").lower()
         if any(x in east_answer for x in bookshelf_scenario):
@@ -310,7 +311,8 @@ def east_face(look_answer):
                             print("With what do you scratch it with?")
                             scratch_answer = input("Asnwer: ").lower()
                             if "knife" in scratch_answer:
-                                print(f"You scratched the sticker off and it reavealed the number {Fore.LIGHTYELLOW_EX}1{Fore.WHITE}\n")
+                                type_delay(f"You scratched the sticker off and it reavealed the number {Fore.LIGHTYELLOW_EX}1{Fore.WHITE}\n")
+                                break
                             elif "nail" in scratch_answer:
                                 type_delay("As you try to scratch off this sticker of a duck, you break your nail...\n")
                                 Event().wait(2)
