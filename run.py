@@ -127,7 +127,6 @@ def start_game():
     type_delay(".\n")
     get_username()
 
-    type_delay(random.choice(random.choice(tips_list)))
     print(ROOM_DESIGN)
     landing_start()
 
