@@ -11,7 +11,7 @@ from colorama import Fore
 from text import *
 colorama.init()
 
-#Global Var for the username, age and location
+#Global Var for the username
 USERNAME = ""
 # Starting scenarios
 start_scenario = ["start", "begin", "let's go", "started", "wall", "anywhere"]
