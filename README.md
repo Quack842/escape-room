@@ -144,6 +144,10 @@ This was used to deploy the application. <br>
 [Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents) <br>
 
+## Validating The Code
+For validating the Python code, I used [Python Checker](https://www.pythonchecker.com/).
+![Code Validated](assets/images/validator.png)
+
 ## Manual Testing
 
 Featrue             | Outcome                            | Example                                                     | Pass/Fail  |

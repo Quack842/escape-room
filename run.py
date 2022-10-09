@@ -36,7 +36,7 @@ west_scenario = ["west", "left"]
 # When the user quit or exit the game
 exit_scenario = ["exit", "quit", "give up", "terminate", "kill code"]
 # When the user wants to go back
-back_scenario = ["back", "rewind", "step back", "go back"]\
+back_scenario = ["back", "rewind", "step back", "go back"]
 # When the player enter any of the following key words for open north door
 door_scenario = ["inspect", "approach", "open", "near", "look", "break", "unlock", "go to"]
 # When the user inspect the bookshelf
@@ -100,21 +100,20 @@ def get_username():
         name = input("What should I call you?\n" + "Answer: ").strip()
         if len(name) < 2:
             clear()
-            print(f"{Fore.RED}The Length of the username is too short,"
-            f" please try again{Fore.WHITE}")
+            type_delay(USERNAME_SHORT_ERROR)
         elif len(name) > 15:
             clear()
-            print(f"{Fore.RED}The username is too long, try a shorter username.{Fore.WHITE}")
+            type_delay(USERNAME_LONG_ERROR)
         elif any(char.isdigit() for char in name):
             clear()
-            print(f"{Fore.RED}The username cannot contain any numbers.{Fore.WHITE}")
+            type_delay(USERNAME_NUMBERS)
         elif all(char.isalpha() or char.isspace() for char in name):
             global USERNAME
             USERNAME = " ".join(name.split()).title()
             break
         else:
             clear()
-            print(f"{Fore.RED}Your name cannot contain any symbols, please try again.{Fore.WHITE}")
+            type_delay(USERNAME_SYMBOLS)
 
 def start_game():
     """
@@ -166,8 +165,7 @@ def north_face(look_answer):
     clear()
     print(ROOM_DESIGN_NORTH)
     while True:
-        type_delay(f"{Fore.BLUE}North:{Fore.WHITE}" +
-        f" You see a door… What do you do {USERNAME}?\n")
+        type_delay(FACE_NORTH_START + USERNAME + "?\n")
         north_answer = input("Answer: ").lower()
         # When the user inspect the door
         if any(x in north_answer for x in door_scenario):

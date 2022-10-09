@@ -213,6 +213,9 @@ door, it seems like it needs a \033[5;35m4 digit\033[0;0m code to unlock. Do you
 want to unlock the door?(Y/N)
 """
 
+FACE_NORTH_START = f"""
+{Fore.BLUE}North:{Fore.WHITE} You see a door… What do you do """
+
 # When the user inspect the east side
 
 STORY_EAST_INSPECT = f"""
@@ -468,4 +471,21 @@ You can always get the code to the combination lock in the source code... but th
 HINT_8 = f"""
 {Fore.LIGHTMAGENTA_EX}Hint - 8:{Fore.WHITE}
 You can alway change the direction you are faceing by typing "turn to the left" or "turn to the right".
+"""
+
+# Error Messages
+USERNAME_SHORT_ERROR = f"""
+{Fore.RED}The Length of the username is too short, please try again{Fore.WHITE}
+"""
+
+USERNAME_LONG_ERROR = f"""
+{Fore.RED}The username is too long, try a shorter username.{Fore.WHITE}
+"""
+
+USERNAME_NUMBERS = f"""
+{Fore.RED}The username cannot contain any numbers.{Fore.WHITE}
+"""
+
+USERNAME_SYMBOLS = f"""
+{Fore.RED}Your name cannot contain any symbols, please try again.{Fore.WHITE}
 """
