@@ -58,7 +58,7 @@ There might not be too many instructions, but the reason is so the player can ha
 
 ## Flowchart
 
-I don't really have a flowchart, but when I originally thought of the idea to create a escape room, I started creating diffirent possible scenarios on Notes on my Laptop. I adjusted/cahnged and added to the code as I started with the code.
+I don't really have a flowchart, but when I originally thought of the idea to create a escape room, I started creating diffirent possible scenarios on Notes on my Laptop. I adjusted/change and added to the code as I started with the code.
 <details>
     <summary>Room Design</summary>
 

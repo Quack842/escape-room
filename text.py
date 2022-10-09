@@ -289,7 +289,7 @@ Please Get off of my table.\n
 
 DESK_INPSECT = """
 You approach the desk, as you get closer, you first notice the knife on the desk.
-This might come in hand later. Afterwards you see that the desk also have 2 drawers. 
+This might come in handy later. Afterwards you see that the desk also have 2 drawers. 
 What do you do """
 
 # When the user wants to open one of the drawers
