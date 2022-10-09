@@ -36,7 +36,7 @@ west_scenario = ["west", "left"]
 # When the user quit or exit the game
 exit_scenario = ["exit", "quit", "give up", "terminate", "kill code"]
 # When the user wants to go back
-back_scenario = ["back", "rewind", "step back", "go back"]
+back_scenario = ["back", "rewind", "step back", "go back"]\
 # When the player enter any of the following key words for open north door
 door_scenario = ["inspect", "approach", "open", "near", "look", "break", "unlock", "go to"]
 # When the user inspect the bookshelf
@@ -139,45 +139,7 @@ def landing_start():
         type_delay(STORY_START + USERNAME + "?\n")
         answer = input("Answer: ").lower()
         if any(x in answer for x in first_scenario):
-            clear()
-            print(ROOM_DESIGN)
-            while True:
-                type_delay(WHERE_LOOK)
-                look_answer = input("Answer: ").lower()
-                # WHen the user look North
-                if any(x in look_answer for x in north_scenario) or look_answer == "n":
-                    north_face(look_answer)
-                # When the user looks east
-                elif any(x in look_answer for x in east_scenario) or look_answer == "e":
-                    east_face(look_answer)
-                # When the user look to the South
-                elif any(x in look_answer for x in south_scenario) or look_answer == "s":
-                    south_face(look_answer)
-                # When the user look to the West
-                elif any(x in look_answer for x in west_scenario) or look_answer == "w":
-                    west_face(look_answer)
-                # When the user want to exit
-                elif any(x in look_answer for x in exit_scenario):
-                    exit_app()
-                # When the user wants to go back
-                elif any(x in look_answer for x in back_scenario):
-                    break
-                elif any(x in look_answer for x in death_scenario):
-                    print(SUICIDE_TEXT)
-                    type_delay("Ireland suicide Helpline: 1800 247 247\n")
-                elif "up" in look_answer:
-                    type_delay(LOOK_UP)
-                elif "down" in look_answer:
-                    type_delay(LOOK_DOWN)
-                elif "kick" in look_answer:
-                    type_delay(KICK_LOOK)
-                    Event().wait(2)
-                elif any(x in look_answer for x in tips_command):
-                    type_delay(random.choice(tips_list))
-                elif any(x in look_answer for x in hint_command):
-                    type_delay(random.choice(hints_list))
-                else:
-                    type_delay(INVALID_COMMAND)
+            where_look()
         elif "nothing" in answer:
             type_delay("You should at least try... otherwise, why are you playing the game?\n")
         elif any(x in answer for x in back_scenario):
@@ -294,7 +256,7 @@ def east_face(look_answer):
     print(ROOM_DESIGN_EAST)
     while True:
         type_delay(f"{Fore.GREEN}East: {Fore.WHITE}" +
-        "You turn to your right and see a big bookshelf that is almost as wide as"
+        "You turn to the east and see a big bookshelf that is almost as wide as"
         "the wall...\n"
         f"What do you do {USERNAME}?\n")
         east_answer = input("Answer: ").lower()
@@ -430,7 +392,7 @@ def south_face(look_answer):
     print(ROOM_DESIGN_SOUTH)
     while True:
         type_delay(f"{Fore.RED}South: {Fore.WHITE}" +
-        f"You See a table with two chairs on each side. What do you do {USERNAME}?\n")
+        f"You see a table with two chairs on each side. What do you do {USERNAME}?\n")
         south_scenario_answer = input("Answer: ").lower()
         if any(x in south_scenario_answer for x in south_scenario_inpsect):
             type_delay(INSPECT_CHAIRS)
@@ -473,7 +435,7 @@ def west_face(look_answer):
     print(ROOM_DESIGN_WEST)
     while True:
         type_delay(f"{Fore.YELLOW}West: {Fore.WHITE}" +
-        f"You turn to your left, you see a desk. What do you do {USERNAME}?\n")
+        f"You turn to the west, you see a desk. What do you do {USERNAME}?\n")
         desk_answer = input("Answer: ").lower()
         if any(x in desk_answer for x in desk_scenario):
             type_delay(DESK_INPSECT + USERNAME + "?\n")
@@ -538,6 +500,50 @@ def west_face(look_answer):
         elif any(x in desk_answer for x in tips_command):
             type_delay(random.choice(tips_list))
         elif any(x in desk_answer for x in hint_command):
+            type_delay(random.choice(hints_list))
+        else:
+            type_delay(INVALID_COMMAND)
+
+def where_look():
+    """
+    When the user indicated what direction they are looking at
+    """
+    clear()
+    print(ROOM_DESIGN)
+    while True:
+        type_delay(WHERE_LOOK)
+        look_answer = input("Answer: ").lower()
+        # WHen the user look North
+        if any(x in look_answer for x in north_scenario) or look_answer == "n":
+            north_face(look_answer)
+        # When the user looks east
+        elif any(x in look_answer for x in east_scenario) or look_answer == "e":
+            east_face(look_answer)
+        # When the user look to the South
+        elif any(x in look_answer for x in south_scenario) or look_answer == "s":
+            south_face(look_answer)
+        # When the user look to the West
+        elif any(x in look_answer for x in west_scenario) or look_answer == "w":
+            west_face(look_answer)
+        # When the user want to exit
+        elif any(x in look_answer for x in exit_scenario):
+            exit_app()
+        # When the user wants to go back
+        elif any(x in look_answer for x in back_scenario):
+            break
+        elif any(x in look_answer for x in death_scenario):
+            print(SUICIDE_TEXT)
+            type_delay("Ireland suicide Helpline: 1800 247 247\n")
+        elif "up" in look_answer:
+            type_delay(LOOK_UP)
+        elif "down" in look_answer:
+            type_delay(LOOK_DOWN)
+        elif "kick" in look_answer:
+            type_delay(KICK_LOOK)
+            Event().wait(2)
+        elif any(x in look_answer for x in tips_command):
+            type_delay(random.choice(tips_list))
+        elif any(x in look_answer for x in hint_command):
             type_delay(random.choice(hints_list))
         else:
             type_delay(INVALID_COMMAND)
