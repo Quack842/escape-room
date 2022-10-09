@@ -24,6 +24,8 @@ _________________________________________________________________
 _______________________________________________________________                                                                                     
 """
 
+# Room Designs
+
 ROOM_DESIGN = f"""
  ________________________________________
 |             |___________|              |
@@ -136,6 +138,10 @@ about the game and how to play this game type {Fore.BLUE}Info/Information{Fore.W
 Whenever you want to exit the app, just type {Fore.BLUE}kill code{Fore.WHITE}.
 """
 
+INVALID_COMMAND = f"""
+{Fore.RED}Invalid Command.{Fore.WHITE} Please make sure of spelling and enter a valid command...
+"""
+
 INFORMATION_TEXT = f"""
   _____ _   _ ______ ____  _____  __  __       _______ _____ ____  _   _ 
  |_   _| \ | |  ____/ __ \|  __ \|  \/  |   /\|__   __|_   _/ __ \| \ | |
@@ -162,6 +168,8 @@ want to face. There is also tips and hints available, just type a sentance with
 the word {Fore.BLUE}"hint"{Fore.WHITE} or {Fore.BLUE}"tip"{Fore.WHITE} in it.
 """
 
+# Start of the story
+
 STORY_START = """
 You find yourself in a small room. You feel foggy and you dont know where you 
 are or how you got here. You get the feeling that you need to get out of this 
@@ -172,6 +180,8 @@ WHERE_LOOK = f"""
 Where do you look?
 Forward{Fore.BLUE}(NORTH){Fore.WHITE}, To Your Right{Fore.GREEN}(East){Fore.WHITE}, Behind You{Fore.RED}(South){Fore.WHITE} or to Your Left{Fore.YELLOW}(West){Fore.WHITE}
 """
+
+# Random commands text
 
 LOOK_UP = """
 You look up... there is a single light bulb flickering above you... 
@@ -187,11 +197,15 @@ Why would you kick?... What would you kick? What will this achieve?...
 Do anything else
 """
 
+# Text for killing the code
+
 KILL_CODE = f"""
 Are you positive you want to quit the app?
 Type {Fore.BLUE}Y{Fore.WHITE} if you want to quit the app or type {Fore.BLUE}N{Fore.WHITE} if 
 you want to stay and try again.\n
 """
+
+# When the user inpsect the north
 
 STORY_NORTH_INSPECT = f"""
 You see that there is a \033[5;35mPurple\033[0;0m combination padlock on the 
@@ -199,12 +213,16 @@ door, it seems like it needs a \033[5;35m4 digit\033[0;0m code to unlock. Do you
 want to unlock the door?(Y/N)
 """
 
+# When the user inspect the east side
+
 STORY_EAST_INSPECT = f"""
 You see a bookshelf filled with different colour books, the person who this room 
 belongs to must really love reading! The different colour books are mesmerising 
 to look at. As you are inspecting the bookshelf, you notice that there are a lot 
 of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
 What do you do\n """
+
+# When the user inspect the books
 
 INSPECT_BOOK_PURPLE = f"""
 After inspecting the purple books, you notice that each of the book have a 
@@ -216,9 +234,14 @@ ostrobogulous duck was on the area where the number should be. Something
 sharp will work to scratch off this weird sticker.\n
 What do you do """
 
-INVALID_COMMAND = f"""
-{Fore.RED}Invalid Command.{Fore.WHITE} Please make sure of spelling and enter a valid command...
+INSPECT_BOOK_RED = f"""
+You take the first red book you see, the outside of the book doesnt 
+seem like it has anything special to it, do you open the book? (Y/N)
 """
+
+# When the user commands anything suicidal, you might wonder who would do this...
+# I asked my brother to test my code and the first thing he typed was
+# die...
 
 SUICIDE_TEXT = """
               _ _  _____ _______ ____  _____  _ _ 
@@ -237,10 +260,7 @@ SUICIDE_TEXT = """
 _________________________________________________________________
 """
 
-INSPECT_BOOK_RED = f"""
-You take the first red book you see, the outside of the book doesnt 
-seem like it has anything special to it, do you open the book? (Y/N)
-"""
+# The different scenarios for the south direction
 
 INSPECT_CHAIRS = f"""
 You approach the table and chairs, as you get closer, you notice that there is 
@@ -269,12 +289,21 @@ You approach the desk, as you get closer, you first notice the knife on the desk
 This might come in hand later. Afterwards you see that the desk also have 2 drawers. 
 What do you do """
 
+# When the user wants to open one of the drawers
+
 LEFT_DRAWER = """
 The drawer is very difficult to open, but you pull harder. You used all your strength 
 to open this one drawer... but it is shut tightly. 
 I dont think it should open.\n
 """
 
+RIGHT_DRAWER = """
+You try to pull on the right drawer, it is difficult to open, it might be stuk.
+Why would the story teller even mention the drawers if they dont open? What
+mind games are being played here?\n
+"""
+
+#When the user ispects the red books
 
 OPEN_RED_BOOK = f"""
 You open the book… You start reading the first line, the book was so interesting, that 
@@ -283,9 +312,13 @@ But… your legs are kinda sore. You have a feeling that the other red books wil
 the same results.\n
 """
 
+# When the user search around
+
 SEARCH_COMMAND = """
 After looking around, you notice something sharp to the west side.
 """
+
+#When the user escapes the room
 
 ESCAPED_MSG = f"""
 {Fore.BLUE} __     ______  _    _ _ _____  ______   ______ _____  ______ ______ _ _ 
@@ -306,6 +339,8 @@ from the github code itself.
 Thank You for playing and I hope you have a wonderful day!! 
 """
 
+# When the user wuits the app
+
 GOODBYE = """
    _____  ____   ____  _____  ______     ________ _ _ 
   / ____|/ __ \ / __ \|  __ \|  _ \ \   / /  ____| | |
@@ -315,6 +350,8 @@ GOODBYE = """
   \_____|\____/ \____/|_____/|____/  |_|  |______(_|_)
 ________________________________________________________
 """
+
+# WHen the user enters TIPS instead of hint, they will get life tips...
 
 TIPS_1 = f"""
 {Fore.BLUE}Life Tip:{Fore.WHITE}
@@ -389,7 +426,7 @@ Don't judge each day by the harvest you reap but by the seeds that you plant.
 
 - Robert Louis Stevenson\n
 """
-
+# HINT FOR THE USER WHEN THEY NEE HELP
 HINT_1 = f"""
 {Fore.BLUE}Hint - 1:{Fore.WHITE}
 When you are stuck, just type "back", this will take you back to where you can face any direction.

@@ -5,7 +5,7 @@ import os
 import sys
 import random
 from threading import Event
-import time  # To give a delay when typing
+import time
 import colorama # Import Colors into project
 from colorama import Fore
 from text import *
@@ -453,7 +453,7 @@ def west_face(look_answer):
                         type_delay(LEFT_DRAWER)
                         Event().wait(2)
                     elif "right" in desk_open_scenario:
-                        type_delay(LEFT_DRAWER)
+                        type_delay(RIGHT_DRAWER)
                         Event().wait(2)
                     elif any(x in desk_open_scenario for x in back_scenario):
                         break
