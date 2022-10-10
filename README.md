@@ -8,7 +8,7 @@ type anything in the command and there should be a response. The commands should
 situation in game.
 
 The player will look around the room to find a key/code to use to escape the room. There is also tips and hints available for the
-player to ask for when they are stuck.
+player to ask for when they are stuck. As well as change directions by indicating what direction they want to face.
 
 If you have every player Larry... almost the same.
 
