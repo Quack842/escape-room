@@ -3,12 +3,9 @@
 ![The Escape Room Main Screen](assets/images/escape-room-main-page.png)
 
 This Escape Room Game is designed and created to test the players investigative and creativity skills. 
-The idea of this escape room game is to give the player as much freedom as as possilbe. This means that the player can
-type anything in the command and there should be a response. The commands should at least be related to the current 
-situation in game.
+The idea of this escape room game is to give the player as much freedom as as possible. This means that the player can type anything in the command and there should be a response. The commands should at least be related to the current situation in the game.
 
-The player will look around the room to find a key/code to use to escape the room. There is also tips and hints available for the
-player to ask for when they are stuck. As well as change directions by indicating what direction they want to face.
+The player will look around the room to find a key/code to use to escape the room. There are also tips and hints available for the player to ask for when they are stuck. As well as change directions by indicating what direction they want to face.
 
 If you have every player Larry... almost the same.
 
@@ -36,14 +33,14 @@ The game can be played [here](https://quack-escape-room.herokuapp.com/)
 [Back To Top](#the-escape-room) <br>
 [Back To Table Of Contents](#table-of-contents)
 
-The Escape Room is created and designed in such a way the the player has as much freedom as possiple. The game is also colorful to make it pleasing for the player to look at, without being overwhelmed with too much color and distractions.
+The Escape Room is created and designed in such a way that the player has as much freedom as possible. The game is also colorful to make it pleasing for the player to look at, without being overwhelmed with too much color and distractions.
 There might not be too many instructions, but the reason is so the player can have the freedom to type what they want.
 
 ## Project Goals/User Goals
 
 * Have appealing features and is pleasing to look at.
-* Application should keep running till player excecutes the app.
-* Have many scenorios to cover as many different commands as possible.
+* Application should keep running till the player executes the app.
+* Have many scenarios to cover as many different commands as possible.
 * Have input validation for any incorrect inputs.
 * As a player, I want as much freedom as possible to give any command and still get a scenario based on said command.
 * As a player, I want to feel in control of the situations.
@@ -58,7 +55,7 @@ There might not be too many instructions, but the reason is so the player can ha
 
 ## Flowchart
 
-I don't really have a flowchart, but when I originally thought of the idea to create a escape room, I started creating diffirent possible scenarios on Notes on my Laptop. I adjusted/change and added to the code as I started with the code.
+I don't really have a flowchart, but when I originally thought of the idea to create an escape room, I started creating different possible scenarios on Notes on my Laptop. I adjusted/change and added to the code as I started with the code.
 <details>
     <summary>Room Design</summary>
 
@@ -172,6 +169,9 @@ This application is a very popular developers platform to create/commit/push and
 
 * [HubSpot](https://blog.hubspot.com/sales/famous-quotes) <br>
 This is where I got the 10 random quotes for when the player ask for a tip instead of a hint.<br>
+
+* [Revesro](https://www.reverso.net/spell-checker/english-spelling-grammar/) <br>
+I used this website to help with spelling and grammer errors. <br>
 
 <br>
 
