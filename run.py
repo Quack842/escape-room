@@ -61,7 +61,7 @@ death_scenario = ["die", "kill myself", "end myself", "cut myself", "off myself"
 # Tips Commands
 tips_command = ["tip", "tips"]
 # Hint Commands
-hint_command = ["help", "hint", "hints", "idk"]
+hint_command = ["help", "hint", "hints", "idk", "i dont know"]
 # Life Tips random array
 tips_list = [TIPS_1, TIPS_2, TIPS_3, TIPS_4, TIPS_5, TIPS_6, TIPS_7, TIPS_8, TIPS_9, TIPS_10]
 # Hints random array

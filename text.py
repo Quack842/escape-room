@@ -411,7 +411,8 @@ Life is what happens when you're busy making other plans.
 
 TIPS_8 = f"""
 {Fore.LIGHTMAGENTA_EX}Life Tip:{Fore.WHITE}
-Spread love everywhere you go. Let no one ever come to you without leaving happier. 
+Spread love everywhere you go. Let no one ever come to you without leaving 
+happier. 
 
 - Mother Teresa
 """
@@ -465,7 +466,8 @@ There is no limit to the lock comibation queses, so you could always just guess 
 
 HINT_7 = f"""
 {Fore.LIGHTYELLOW_EX}Hint - 7:{Fore.WHITE}
-You can always get the code to the combination lock in the source code... but thats cheating
+You can always get the code to the combination lock in the source code... but 
+that is cheating
 """
 
 HINT_8 = f"""
