@@ -22,12 +22,10 @@ The game can be played [here](https://quack-escape-room.herokuapp.com/)
     * [Languages](#languages-used)
     * [Frameworkds, Libraries, Website and Programs](#frameworks-libraries-websites-and-programs-used)
 4. [Testing](#testing)
-    * [Responsive Test](#responsive-test)
     * [Validating The Code](#validating-the-code)
-    * [Accessibility](#accessibility)
+    * [Manual Testing](#manual-testing)
 5. [Deployment](#deployment)
 6. [Credits](#credits)
-7. [End Product](#end-product)
 
 # User Experience (UX)
 [Back To Top](#the-escape-room) <br>
