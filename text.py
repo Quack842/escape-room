@@ -163,15 +163,15 @@ Answer: Look around the car
 and so on.
 
 Depending on your answer, the story will progress accordingly.
-You can change the direction you're faceing by indicating which direction you 
-want to face. There is also tips and hints available, just type a sentance with 
+You can change the direction you're facing by indicating which direction you 
+want to face. There is also tips and hints available, just type a sentence with 
 the word {Fore.BLUE}"hint"{Fore.WHITE} or {Fore.BLUE}"tip"{Fore.WHITE} in it.
 """
 
 # Start of the story
 
 STORY_START = """
-You find yourself in a small room. You feel foggy and you dont know where you 
+You find yourself in a small room. You feel foggy and you don't know where you 
 are or how you got here. You get the feeling that you need to get out of this 
 room...\n
 What do you do """
@@ -238,7 +238,7 @@ sharp will work to scratch off this weird sticker.\n
 What do you do """
 
 INSPECT_BOOK_RED = f"""
-You take the first red book you see, the outside of the book doesnt 
+You take the first red book you see, the outside of the book doesn't 
 seem like it has anything special to it, do you open the book? (Y/N)
 """
 
@@ -297,16 +297,16 @@ What do you do """
 LEFT_DRAWER = """
 The drawer is very difficult to open, but you pull harder. You used all your strength 
 to open this one drawer... but it is shut tightly. 
-I dont think it should open.\n
+I don't think it should open.\n
 """
 
 RIGHT_DRAWER = """
-You try to pull on the right drawer, it is difficult to open, it might be stuk.
-Why would the story teller even mention the drawers if they dont open? What
+You try to pull on the right drawer, it is difficult to open, it might be stuck.
+Why would the story teller even mention the drawers if they don't open? What
 mind games are being played here?\n
 """
 
-#When the user ispects the red books
+#When the user inspect the red books
 
 OPEN_RED_BOOK = f"""
 You open the book… You start reading the first line, the book was so interesting, that 
@@ -334,7 +334,7 @@ __________________________________________________________________________
 
 Congratulations! You have managed to escaped the room.
 Walking out of the escape room, you feel this since that
-you have overcame a huge maintain...
+you have overcame a huge mountain...
 when in reality.. you just finished a game
 where you could have gotten the unlock code
 from the github code itself.
@@ -342,7 +342,7 @@ from the github code itself.
 Thank You for playing and I hope you have a wonderful day!! 
 """
 
-# When the user wuits the app
+# When the user quits the app
 
 GOODBYE = """
    _____  ____   ____  _____  ______     ________ _ _ 
@@ -354,7 +354,7 @@ GOODBYE = """
 ________________________________________________________
 """
 
-# WHen the user enters TIPS instead of hint, they will get life tips...
+# When the user enters TIPS instead of hint, they will get life tips...
 
 TIPS_1 = f"""
 {Fore.BLUE}Life Tip:{Fore.WHITE}
@@ -438,7 +438,7 @@ When you are stuck, just type "back", this will take you back to where you can f
 
 HINT_2 = f"""
 {Fore.GREEN}Hint - 2:{Fore.WHITE}
-Search around the room, if your stuck, try using commands that has one of the following words in it:
+Search around the room, if you are stuck, try using commands that has one of the following words in it:
 - look
 - inspect
 - approach
@@ -451,12 +451,12 @@ If you are stuck and the other hints doesn't work, you can always kill the game 
 
 HINT_4 = f"""
 {Fore.MAGENTA}Hint - 4:{Fore.WHITE}
-There might be somthing at the bookshelf, that is to the east of the room.
+There might be something at the bookshelf, that is to the east of the room.
 """
 
 HINT_5 = f"""
 {Fore.LIGHTCYAN_EX}Hint - 5:{Fore.WHITE}
-It helps to specify witch direction you want to look at, sometimes.
+It helps to specify which direction you want to look at, sometimes.
 """
 
 HINT_6 = f"""
@@ -472,7 +472,7 @@ that is cheating
 
 HINT_8 = f"""
 {Fore.LIGHTMAGENTA_EX}Hint - 8:{Fore.WHITE}
-You can alway change the direction you are faceing by typing "turn to the left" or "turn to the right".
+You can alway change the direction you are facing by typing "turn to the left" or "turn to the right".
 """
 
 # Error Messages
