@@ -461,7 +461,7 @@ It helps to specify which direction you want to look at, sometimes.
 
 HINT_6 = f"""
 {Fore.LIGHTGREEN_EX}Hint - 6:{Fore.WHITE}
-There is no limit to the lock comibation queses, so you could always just guess the code.
+There is no limit to the lock combination guesses, so you could always just guess the code.
 """
 
 HINT_7 = f"""
@@ -472,7 +472,7 @@ that is cheating
 
 HINT_8 = f"""
 {Fore.LIGHTMAGENTA_EX}Hint - 8:{Fore.WHITE}
-You can alway change the direction you are facing by typing "turn to the left" or "turn to the right".
+You can always change the direction you are facing by typing "turn to the left" or "turn to the right".
 """
 
 # Error Messages
