@@ -223,7 +223,8 @@ You see a bookshelf filled with different colour books, the person who this room
 belongs to must really love reading! The different colour books are mesmerising 
 to look at. As you are inspecting the bookshelf, you notice that there are a lot 
 of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
-What do you do\n """
+What do you do?\n
+"""
 
 # When the user inspect the books
 
@@ -288,7 +289,7 @@ Please Get off of my table.\n
 """
 
 DESK_INPSECT = """
-You approach the desk, as you get closer, you first notice the knife on the desk.
+You approach the desk, as you get closer, you notice the knife on the desk.
 This might come in handy later. Afterwards you see that the desk also have 2 drawers. 
 What do you do """
 

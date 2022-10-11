@@ -13,6 +13,8 @@ colorama.init()
 
 #Global Var for the username
 USERNAME = ""
+# Measure the start time
+start_time = time.time()
 # Starting scenarios
 start_scenario = ["start", "begin", "let's go", "started", "wall", "anywhere"]
 # Faceing right scenario
@@ -24,7 +26,7 @@ info_scenario = ["info", "information"]
 # Default scenarios
 first_scenario = ["look", "approach", "inspect", "walk",
 "investigate", "forward", "anything", "go to", "move",
-"around", "search"]
+"around", "search", "escape"]
 # Possible inputs for looking to the North
 north_scenario = ["north", "forward", "straight", "ahead", "infront"]
 # When the user look to the East
@@ -134,6 +136,9 @@ def landing_start():
     When the user want to come back to this scene
     """
     type_delay("Well hello, " + USERNAME)
+    sum_x = 0
+    for i in range(1000000):
+        sum_x += i
     while True:
         type_delay(STORY_START + USERNAME + "?\n")
         answer = input("Answer: ").lower()
@@ -255,7 +260,7 @@ def east_face(look_answer):
     while True:
         type_delay(f"{Fore.GREEN}East: {Fore.WHITE}" +
         "You turn to the east and see a big bookshelf that is almost as wide as"
-        "the wall...\n"
+        " the wall...\n"
         f"What do you do {USERNAME}?\n")
         east_answer = input("Answer: ").lower()
         if any(x in east_answer for x in bookshelf_scenario):
@@ -609,6 +614,8 @@ def animate_rocket():
 
             clear()
             print(ESCAPED_MSG)
+            elapsed_time = time.time() - start_time
+            print('It took you this long to escape the room.(H:M:S): ', time.strftime("%H:%M:%S", time.gmtime(elapsed_time)))
             input("Press Enter to continue...")
             main_menu()
 
