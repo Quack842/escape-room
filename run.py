@@ -14,7 +14,7 @@ colorama.init()
 #Global Var for the username
 USERNAME = ""
 # Measure the start time
-start_time = time.time()
+START_TIME = 0.000
 # Starting scenarios
 start_scenario = ["start", "begin", "let's go", "started", "wall", "anywhere"]
 # Faceing right scenario
@@ -69,6 +69,15 @@ tips_list = [TIPS_1, TIPS_2, TIPS_3, TIPS_4, TIPS_5, TIPS_6, TIPS_7, TIPS_8, TIP
 # Hints random array
 hints_list = [HINT_1, HINT_2, HINT_3, HINT_4, HINT_5, HINT_6, HINT_7, HINT_8]
 
+def timer(start: bool):
+    """
+    This function returns time since last call
+    """
+    if start:
+        global START_TIME
+        START_TIME = time.perf_counter()
+    return time.perf_counter() - START_TIME
+
 def main_menu():
     """
     This will be the landing, the user will first see this page before entering the game.
@@ -112,6 +121,7 @@ def get_username():
         elif all(char.isalpha() or char.isspace() for char in name):
             global USERNAME
             USERNAME = " ".join(name.split()).title()
+            current_timer = timer(True)
             break
         else:
             clear()
@@ -136,9 +146,6 @@ def landing_start():
     When the user want to come back to this scene
     """
     type_delay("Well hello, " + USERNAME)
-    sum_x = 0
-    for i in range(1000000):
-        sum_x += i
     while True:
         type_delay(STORY_START + USERNAME + "?\n")
         answer = input("Answer: ").lower()
@@ -606,7 +613,7 @@ def animate_rocket():
         print(f"   {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}  ||      {Fore.GREEN}.{Fore.WHITE}           ||      {Fore.RED}.{Fore.WHITE}     {Fore.BLUE}.{Fore.WHITE}     ||   {Fore.YELLOW}.{Fore.WHITE}      {Fore.RED}.{Fore.WHITE}   {Fore.BLUE}.{Fore.WHITE}  ||")
         print(f"     {Fore.RED}.{Fore.WHITE}   /||\          {Fore.BLUE}.{Fore.WHITE}     /||\       {Fore.RED}.{Fore.WHITE}        /||\    {Fore.YELLOW}.{Fore.WHITE}      {Fore.GREEN}.{Fore.WHITE}   /||\ ")
 
-        time.sleep(0.1)
+        time.sleep(0.05)
         os.system('clear')
         distance_from_top -= 1
         if distance_from_top < 0:
@@ -614,8 +621,12 @@ def animate_rocket():
 
             clear()
             print(ESCAPED_MSG)
-            elapsed_time = time.time() - start_time
-            print('It took you this long to escape the room.(H:M:S): ', time.strftime("%H:%M:%S", time.gmtime(elapsed_time)))
+
+            elapsed_time = timer(False)
+            minutes, seconds = divmod(elapsed_time, 60)
+            hours, minutes = divmod(minutes, 60)
+
+            type_delay(f'It took you {Fore.BLUE}{int(hours)}h:{int(minutes)}m:{int(seconds)}s{Fore.WHITE} to escape the room.\n')
             input("Press Enter to continue...")
             main_menu()
 
