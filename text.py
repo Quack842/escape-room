@@ -223,7 +223,7 @@ You see a bookshelf filled with different colour books, the person who this room
 belongs to must really love reading! The different colour books are mesmerising 
 to look at. As you are inspecting the bookshelf, you notice that there are a lot 
 of different colour books but only \033[5;35m4 Purple\033[0;0m and \033[5;31m4 Red\033[0;0m books.\n
-What do you do?\n
+What do you do?
 """
 
 # When the user inspect the books
