@@ -214,7 +214,8 @@ def north_face(look_answer):
                 north_inspect_answer = input("Answer: ").lower()
                 if any(x in north_inspect_answer for x in north_inspect_scenario):
                     while True:
-                        north_yes_input = input("Please enter the 4 digit code (type 'back' to return): ")
+                        north_yes_input = input("Please enter the 4 digit code"
+                        f" (type 'back' to return): ")
                         # The correct combination
                         if north_yes_input == str(3012):
                             type_delay("You entered the \033[5;35m4\033[0;0m digit code,"
@@ -224,7 +225,8 @@ def north_face(look_answer):
                             animate_rocket()
                         # If the input is less than 4
                         elif len(north_yes_input) < 4:
-                            print(f"{Fore.RED}Invalid:{Fore.WHITE} It is a \033[5;35m4\033[0;0m digit combination lock,"
+                            print(f"{Fore.RED}Invalid:{Fore.WHITE} It is a \033[5;35m4\033[0;0m"
+                            f" digit combination lock,"
                             f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}\n."
                             f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
                             " you need to enter a 4 digit code.\n")
@@ -233,8 +235,8 @@ def north_face(look_answer):
                             print(f"{Fore.RED}Invalid:{Fore.WHITE} "
                             "It is a 4 digit combination lock,"
                             f" you entered {Fore.BLUE}{north_yes_input}{Fore.WHITE}."
-                            f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits, you need"
-                            " to enter a 4 digit code.\n")
+                            f" That is {Fore.BLUE}{len(north_yes_input)}{Fore.WHITE} digits,"
+                            " you need to enter a 4 digit code.\n")
                         # The player wants to go back
                         elif any(x in north_yes_input for x in back_scenario):
                             clear()
@@ -337,10 +339,12 @@ def east_face(look_answer):
                             scratch_answer = input("Asnwer: ").lower()
                             # When the player remove the sticker
                             if "nail" in scratch_answer:
-                                type_delay("As you try to scratch off this sticker of a duck, you break your nail...\n")
+                                type_delay("As you try to scratch off this sticker of a duck,"
+                                f" you break your nail...\n")
                                 Event().wait(2)
                             elif "knife" in scratch_answer:
-                                type_delay(f"You scratched the sticker off and it reavealed the number {Fore.LIGHTYELLOW_EX}1{Fore.WHITE}\n")
+                                type_delay(f"You scratched the sticker off and it reavealed"
+                                f" the number {Fore.LIGHTYELLOW_EX}1{Fore.WHITE}\n")
                                 break
                             # When the player goes back
                             elif any(x in scratch_answer for x in back_scenario):
@@ -724,10 +728,21 @@ def animate_rocket():
     distance_from_top = 20
     while True:
         print("\n" * distance_from_top)
-        print(f"     {Fore.BLUE}.{Fore.WHITE}    /\             {Fore.RED}.{Fore.WHITE}    /\             {Fore.BLUE}.{Fore.WHITE}    /\   {Fore.BLUE}.{Fore.WHITE}        {Fore.RED}.{Fore.WHITE}    /\ ")
-        print(f" {Fore.GREEN}.{Fore.WHITE}     {Fore.YELLOW}.{Fore.WHITE}  ||        {Fore.YELLOW}.{Fore.WHITE}         ||   {Fore.YELLOW}.{Fore.WHITE}    {Fore.GREEN}.{Fore.WHITE}         ||     {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}    {Fore.YELLOW}.{Fore.WHITE}  ||")
-        print(f"   {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}  ||      {Fore.GREEN}.{Fore.WHITE}           ||      {Fore.RED}.{Fore.WHITE}     {Fore.BLUE}.{Fore.WHITE}     ||   {Fore.YELLOW}.{Fore.WHITE}      {Fore.RED}.{Fore.WHITE}   {Fore.BLUE}.{Fore.WHITE}  ||")
-        print(f"     {Fore.RED}.{Fore.WHITE}   /||\          {Fore.BLUE}.{Fore.WHITE}     /||\       {Fore.RED}.{Fore.WHITE}        /||\    {Fore.YELLOW}.{Fore.WHITE}      {Fore.GREEN}.{Fore.WHITE}   /||\ ")
+        print(f"     {Fore.BLUE}.{Fore.WHITE}    /\             {Fore.RED}.{Fore.WHITE}"
+        f"    /\             {Fore.BLUE}.{Fore.WHITE}    /\   {Fore.BLUE}.{Fore.WHITE}"
+        f"        {Fore.RED}.{Fore.WHITE}    /\ ")
+        print(f" {Fore.GREEN}.{Fore.WHITE}     {Fore.YELLOW}.{Fore.WHITE}  || "
+        f"       {Fore.YELLOW}.{Fore.WHITE}         ||   {Fore.YELLOW}.{Fore.WHITE}"
+        f"    {Fore.GREEN}.{Fore.WHITE}         ||     {Fore.BLUE}.{Fore.WHITE}   "
+        f"{Fore.GREEN}.{Fore.WHITE}    {Fore.YELLOW}.{Fore.WHITE}  ||")
+        print(f"   {Fore.BLUE}.{Fore.WHITE}   {Fore.GREEN}.{Fore.WHITE}  ||   "
+        f"   {Fore.GREEN}.{Fore.WHITE}           ||      {Fore.RED}.{Fore.WHITE}     "
+        f"{Fore.BLUE}.{Fore.WHITE}     ||   {Fore.YELLOW}.{Fore.WHITE}  "
+        f"    {Fore.RED}.{Fore.WHITE} "
+        f"  {Fore.BLUE}.{Fore.WHITE}  ||")
+        print(f"     {Fore.RED}.{Fore.WHITE}   /||\          {Fore.BLUE}.{Fore.WHITE}"
+        f"     /||\       {Fore.RED}.{Fore.WHITE}        /||\    {Fore.YELLOW}.{Fore.WHITE}   "
+        f"   {Fore.GREEN}.{Fore.WHITE}   /||\ ")
 
         time.sleep(0.05)
         os.system('clear')
@@ -742,7 +757,8 @@ def animate_rocket():
             minutes, seconds = divmod(elapsed_time, 60)
             hours, minutes = divmod(minutes, 60)
 
-            type_delay(f'It took you {Fore.BLUE}{int(hours)}h:{int(minutes)}m:{int(seconds)}s{Fore.WHITE} to escape the room.\n')
+            type_delay(f"It took you {Fore.BLUE}{int(hours)}h:{int(minutes)}m:{int(seconds)}"
+            f"s{Fore.WHITE} to escape the room.\n")
             input("Press Enter to continue...")
             main_menu()
 

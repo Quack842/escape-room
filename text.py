@@ -333,7 +333,8 @@ ESCAPED_MSG = f"""
     |_|  \____/ \____/  |_|  \_\______| |_|    |_|  \_\______|______(_|_){Fore.WHITE}
 __________________________________________________________________________
 
-Congratulations! You have managed to escaped the room.
+Congratulations! You have managed to escape the room.
+
 Walking out of the escape room, you get the since that
 you have overcome a huge mountain...
 when in reality.. you just finished a game
