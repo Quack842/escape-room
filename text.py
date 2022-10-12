@@ -334,11 +334,11 @@ ESCAPED_MSG = f"""
 __________________________________________________________________________
 
 Congratulations! You have managed to escaped the room.
-Walking out of the escape room, you feel this since that
-you have overcame a huge mountain...
+Walking out of the escape room, you get the since that
+you have overcome a huge mountain...
 when in reality.. you just finished a game
 where you could have gotten the unlock code
-from the github code itself.
+from the github source code.
 
 Thank You for playing and I hope you have a wonderful day!! 
 """
@@ -474,6 +474,11 @@ that is cheating
 HINT_8 = f"""
 {Fore.LIGHTMAGENTA_EX}Hint - 8:{Fore.WHITE}
 You can always change the direction you are facing by typing "turn to the left" or "turn to the right".
+"""
+
+HINT_9 = f"""
+{Fore.CYAN}Hint - 9:{Fore.WHITE}
+The first letter is the first number.
 """
 
 # Error Messages

@@ -7,7 +7,7 @@ The idea of this escape room game is to give the player as much freedom as as po
 
 The player will look around the room to find a key/code to use to escape the room. There are also tips and hints available for the player to ask for when they are stuck. As well as change directions by indicating what direction they want to face.
 
-If you have every player Larry... almost the same.
+If you have every played Larry... almost the same.
 
 The game can be played [here](https://quack-escape-room.herokuapp.com/)
 
